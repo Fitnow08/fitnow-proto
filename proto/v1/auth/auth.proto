@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package authv1;
 
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 service AuthService {
   rpc Login(LoginRequest) returns (LoginResponse){}
@@ -11,8 +13,11 @@ service AuthService {
 }
 
 message VerifyAccountRequest {
-  string email = 1;
-  int64  verify_code = 2;
+  int64 verify_code = 1 [
+    (buf.validate.field).int64.gt = 0,
+    json_name = "verify_code"
+  ];
+  reserved 2, 5;
 }
 message VerifyAccountResponse {
   string id = 1;
