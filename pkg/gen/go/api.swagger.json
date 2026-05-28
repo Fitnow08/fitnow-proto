@@ -56,6 +56,34 @@
         }
       }
     },
+    "authv1ResendVerifyCodeResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "refreshToken": {
+          "type": "string"
+        },
+        "accessToken": {
+          "type": "string"
+        }
+      }
+    },
+    "authv1ResetPasswordResponse": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        }
+      }
+    },
     "authv1VerifyAccountResponse": {
       "type": "object",
       "properties": {

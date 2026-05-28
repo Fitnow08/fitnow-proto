@@ -10,17 +10,43 @@ service AuthService {
   rpc Register (RegisterRequest) returns (RegisterResponse){}
   rpc NewTokens (NewTokensRequest) returns (NewTokensResponse) {}
   rpc VerifyAccount(VerifyAccountRequest) returns (VerifyAccountResponse) {}
+  rpc ResendVerifyCode(ResendVerifyCodeRequest) returns (ResendVerifyCodeResponse){}
+  rpc ResetPassword(ResetPasswordRequest) returns(ResetPasswordResponse){}
 }
 
-message VerifyAccountRequest {
-  int64 verify_code = 1 [
+message ResetPasswordRequest {
+  string email = 1 [(buf.validate.field).string.email = true];
+  string reset_code = 2 [(buf.validate.field).string.min_len = 4];
+  string new_password = 3 [(buf.validate.field).string.min_len = 8];
+}
+message ResetPasswordResponse{
+  bool ok = 1;
+}
+message ResendVerifyCodeRequest {
+  string email = 1;
+  int64 verify_code = 2 [
     (buf.validate.field).int64.gt = 0,
     json_name = "verify_code"
   ];
-  reserved 2, 5;
+  reserved 3, 5;
+}
+message ResendVerifyCodeResponse{
+  string id = 1 [(buf.validate.field).string.uuid = true];
+  string email = 2;
+  string title = 3;
+  string refresh_token = 4;
+  string access_token = 5;
+}
+message VerifyAccountRequest {
+  string email = 1;
+  int64 verify_code = 2 [
+    (buf.validate.field).int64.gt = 0,
+    json_name = "verify_code"
+  ];
+  reserved 3, 5;
 }
 message VerifyAccountResponse {
-  string id = 1;
+  string id = 1 [(buf.validate.field).string.uuid = true];
   string email = 2;
   string title = 3;
   string refresh_token = 4;

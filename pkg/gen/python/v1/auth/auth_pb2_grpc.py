@@ -34,6 +34,16 @@ class AuthServiceStub(object):
                 request_serializer=v1_dot_auth_dot_auth__pb2.VerifyAccountRequest.SerializeToString,
                 response_deserializer=v1_dot_auth_dot_auth__pb2.VerifyAccountResponse.FromString,
                 _registered_method=True)
+        self.ResendVerifyCode = channel.unary_unary(
+                '/authv1.AuthService/ResendVerifyCode',
+                request_serializer=v1_dot_auth_dot_auth__pb2.ResendVerifyCodeRequest.SerializeToString,
+                response_deserializer=v1_dot_auth_dot_auth__pb2.ResendVerifyCodeResponse.FromString,
+                _registered_method=True)
+        self.ResetPassword = channel.unary_unary(
+                '/authv1.AuthService/ResetPassword',
+                request_serializer=v1_dot_auth_dot_auth__pb2.ResetPasswordRequest.SerializeToString,
+                response_deserializer=v1_dot_auth_dot_auth__pb2.ResetPasswordResponse.FromString,
+                _registered_method=True)
 
 
 class AuthServiceServicer(object):
@@ -63,6 +73,18 @@ class AuthServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ResendVerifyCode(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ResetPassword(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AuthServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -85,6 +107,16 @@ def add_AuthServiceServicer_to_server(servicer, server):
                     servicer.VerifyAccount,
                     request_deserializer=v1_dot_auth_dot_auth__pb2.VerifyAccountRequest.FromString,
                     response_serializer=v1_dot_auth_dot_auth__pb2.VerifyAccountResponse.SerializeToString,
+            ),
+            'ResendVerifyCode': grpc.unary_unary_rpc_method_handler(
+                    servicer.ResendVerifyCode,
+                    request_deserializer=v1_dot_auth_dot_auth__pb2.ResendVerifyCodeRequest.FromString,
+                    response_serializer=v1_dot_auth_dot_auth__pb2.ResendVerifyCodeResponse.SerializeToString,
+            ),
+            'ResetPassword': grpc.unary_unary_rpc_method_handler(
+                    servicer.ResetPassword,
+                    request_deserializer=v1_dot_auth_dot_auth__pb2.ResetPasswordRequest.FromString,
+                    response_serializer=v1_dot_auth_dot_auth__pb2.ResetPasswordResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -195,6 +227,60 @@ class AuthService(object):
             '/authv1.AuthService/VerifyAccount',
             v1_dot_auth_dot_auth__pb2.VerifyAccountRequest.SerializeToString,
             v1_dot_auth_dot_auth__pb2.VerifyAccountResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ResendVerifyCode(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/authv1.AuthService/ResendVerifyCode',
+            v1_dot_auth_dot_auth__pb2.ResendVerifyCodeRequest.SerializeToString,
+            v1_dot_auth_dot_auth__pb2.ResendVerifyCodeResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ResetPassword(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/authv1.AuthService/ResetPassword',
+            v1_dot_auth_dot_auth__pb2.ResetPasswordRequest.SerializeToString,
+            v1_dot_auth_dot_auth__pb2.ResetPasswordResponse.FromString,
             options,
             channel_credentials,
             insecure,

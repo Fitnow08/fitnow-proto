@@ -16,7 +16,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12v1/auth/auth.proto\x12\x06\x61uthv1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"M\n\x14VerifyAccountRequest\x12)\n\x0bverify_code\x18\x01 \x01(\x03\x42\x07\xbaH\x04\"\x02 \x00R\x0bverify_codeJ\x04\x08\x02\x10\x03J\x04\x08\x05\x10\x06\"\x9b\x01\n\x15VerifyAccountResponse\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n\x05\x65mail\x18\x02 \x01(\tR\x05\x65mail\x12\x14\n\x05title\x18\x03 \x01(\tR\x05title\x12#\n\rrefresh_token\x18\x04 \x01(\tR\x0crefreshToken\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x05 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"7\n\x10NewTokensRequest\x12#\n\rrefresh_token\x18\x01 \x01(\tR\x0crefreshToken\"[\n\x11NewTokensResponse\x12#\n\rrefresh_token\x18\x01 \x01(\tR\x0crefreshToken\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x02 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"W\n\x0fRegisterRequest\x12\x14\n\x05\x65mail\x18\x01 \x01(\tR\x05\x65mail\x12\x1a\n\x08password\x18\x02 \x01(\tR\x08password\x12\x12\n\x04name\x18\x03 \x01(\tR\x04name\"\"\n\x10RegisterResponse\x12\x0e\n\x02ok\x18\x01 \x01(\tR\x02ok\"@\n\x0cLoginRequest\x12\x14\n\x05\x65mail\x18\x01 \x01(\tR\x05\x65mail\x12\x1a\n\x08password\x18\x02 \x01(\tR\x08password\"\x93\x01\n\rLoginResponse\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n\x05\x65mail\x18\x02 \x01(\tR\x05\x65mail\x12\x14\n\x05title\x18\x03 \x01(\tR\x05title\x12#\n\rrefresh_token\x18\x04 \x01(\tR\x0crefreshToken\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x05 \x01(\tR\x0b\x61\x63\x63\x65ssToken2\x9a\x02\n\x0b\x41uthService\x12\x36\n\x05Login\x12\x14.authv1.LoginRequest\x1a\x15.authv1.LoginResponse\"\x00\x12?\n\x08Register\x12\x17.authv1.RegisterRequest\x1a\x18.authv1.RegisterResponse\"\x00\x12\x42\n\tNewTokens\x12\x18.authv1.NewTokensRequest\x1a\x19.authv1.NewTokensResponse\"\x00\x12N\n\rVerifyAccount\x12\x1c.authv1.VerifyAccountRequest\x1a\x1d.authv1.VerifyAccountResponse\"\x00\x42\x84\x01\n\ncom.authv1B\tAuthProtoP\x01Z3github.com/Fitnow08/fitnow-proto/pkg/gen/go/v1/auth\xa2\x02\x03\x41XX\xaa\x02\x06\x41uthv1\xca\x02\x06\x41uthv1\xe2\x02\x12\x41uthv1\\GPBMetadata\xea\x02\x06\x41uthv1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12v1/auth/auth.proto\x12\x06\x61uthv1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\x89\x01\n\x14ResetPasswordRequest\x12\x1d\n\x05\x65mail\x18\x01 \x01(\tB\x07\xbaH\x04r\x02`\x01R\x05\x65mail\x12&\n\nreset_code\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x04R\tresetCode\x12*\n\x0cnew_password\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x08R\x0bnewPassword\"\'\n\x15ResetPasswordResponse\x12\x0e\n\x02ok\x18\x01 \x01(\x08R\x02ok\"f\n\x17ResendVerifyCodeRequest\x12\x14\n\x05\x65mail\x18\x01 \x01(\tR\x05\x65mail\x12)\n\x0bverify_code\x18\x02 \x01(\x03\x42\x07\xbaH\x04\"\x02 \x00R\x0bverify_codeJ\x04\x08\x03\x10\x04J\x04\x08\x05\x10\x06\"\xa8\x01\n\x18ResendVerifyCodeResponse\x12\x18\n\x02id\x18\x01 \x01(\tB\x08\xbaH\x05r\x03\xb0\x01\x01R\x02id\x12\x14\n\x05\x65mail\x18\x02 \x01(\tR\x05\x65mail\x12\x14\n\x05title\x18\x03 \x01(\tR\x05title\x12#\n\rrefresh_token\x18\x04 \x01(\tR\x0crefreshToken\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x05 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"c\n\x14VerifyAccountRequest\x12\x14\n\x05\x65mail\x18\x01 \x01(\tR\x05\x65mail\x12)\n\x0bverify_code\x18\x02 \x01(\x03\x42\x07\xbaH\x04\"\x02 \x00R\x0bverify_codeJ\x04\x08\x03\x10\x04J\x04\x08\x05\x10\x06\"\xa5\x01\n\x15VerifyAccountResponse\x12\x18\n\x02id\x18\x01 \x01(\tB\x08\xbaH\x05r\x03\xb0\x01\x01R\x02id\x12\x14\n\x05\x65mail\x18\x02 \x01(\tR\x05\x65mail\x12\x14\n\x05title\x18\x03 \x01(\tR\x05title\x12#\n\rrefresh_token\x18\x04 \x01(\tR\x0crefreshToken\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x05 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"7\n\x10NewTokensRequest\x12#\n\rrefresh_token\x18\x01 \x01(\tR\x0crefreshToken\"[\n\x11NewTokensResponse\x12#\n\rrefresh_token\x18\x01 \x01(\tR\x0crefreshToken\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x02 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"W\n\x0fRegisterRequest\x12\x14\n\x05\x65mail\x18\x01 \x01(\tR\x05\x65mail\x12\x1a\n\x08password\x18\x02 \x01(\tR\x08password\x12\x12\n\x04name\x18\x03 \x01(\tR\x04name\"\"\n\x10RegisterResponse\x12\x0e\n\x02ok\x18\x01 \x01(\tR\x02ok\"@\n\x0cLoginRequest\x12\x14\n\x05\x65mail\x18\x01 \x01(\tR\x05\x65mail\x12\x1a\n\x08password\x18\x02 \x01(\tR\x08password\"\x93\x01\n\rLoginResponse\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n\x05\x65mail\x18\x02 \x01(\tR\x05\x65mail\x12\x14\n\x05title\x18\x03 \x01(\tR\x05title\x12#\n\rrefresh_token\x18\x04 \x01(\tR\x0crefreshToken\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x05 \x01(\tR\x0b\x61\x63\x63\x65ssToken2\xc3\x03\n\x0b\x41uthService\x12\x36\n\x05Login\x12\x14.authv1.LoginRequest\x1a\x15.authv1.LoginResponse\"\x00\x12?\n\x08Register\x12\x17.authv1.RegisterRequest\x1a\x18.authv1.RegisterResponse\"\x00\x12\x42\n\tNewTokens\x12\x18.authv1.NewTokensRequest\x1a\x19.authv1.NewTokensResponse\"\x00\x12N\n\rVerifyAccount\x12\x1c.authv1.VerifyAccountRequest\x1a\x1d.authv1.VerifyAccountResponse\"\x00\x12W\n\x10ResendVerifyCode\x12\x1f.authv1.ResendVerifyCodeRequest\x1a .authv1.ResendVerifyCodeResponse\"\x00\x12N\n\rResetPassword\x12\x1c.authv1.ResetPasswordRequest\x1a\x1d.authv1.ResetPasswordResponse\"\x00\x42\x84\x01\n\ncom.authv1B\tAuthProtoP\x01Z3github.com/Fitnow08/fitnow-proto/pkg/gen/go/v1/auth\xa2\x02\x03\x41XX\xaa\x02\x06\x41uthv1\xca\x02\x06\x41uthv1\xe2\x02\x12\x41uthv1\\GPBMetadata\xea\x02\x06\x41uthv1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,24 +24,44 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'v1.auth.auth_pb2', _globals
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\ncom.authv1B\tAuthProtoP\001Z3github.com/Fitnow08/fitnow-proto/pkg/gen/go/v1/auth\242\002\003AXX\252\002\006Authv1\312\002\006Authv1\342\002\022Authv1\\GPBMetadata\352\002\006Authv1'
+  _globals['_RESETPASSWORDREQUEST'].fields_by_name['email']._options = None
+  _globals['_RESETPASSWORDREQUEST'].fields_by_name['email']._serialized_options = b'\272H\004r\002`\001'
+  _globals['_RESETPASSWORDREQUEST'].fields_by_name['reset_code']._options = None
+  _globals['_RESETPASSWORDREQUEST'].fields_by_name['reset_code']._serialized_options = b'\272H\004r\002\020\004'
+  _globals['_RESETPASSWORDREQUEST'].fields_by_name['new_password']._options = None
+  _globals['_RESETPASSWORDREQUEST'].fields_by_name['new_password']._serialized_options = b'\272H\004r\002\020\010'
+  _globals['_RESENDVERIFYCODEREQUEST'].fields_by_name['verify_code']._options = None
+  _globals['_RESENDVERIFYCODEREQUEST'].fields_by_name['verify_code']._serialized_options = b'\272H\004\"\002 \000'
+  _globals['_RESENDVERIFYCODERESPONSE'].fields_by_name['id']._options = None
+  _globals['_RESENDVERIFYCODERESPONSE'].fields_by_name['id']._serialized_options = b'\272H\005r\003\260\001\001'
   _globals['_VERIFYACCOUNTREQUEST'].fields_by_name['verify_code']._options = None
   _globals['_VERIFYACCOUNTREQUEST'].fields_by_name['verify_code']._serialized_options = b'\272H\004\"\002 \000'
-  _globals['_VERIFYACCOUNTREQUEST']._serialized_start=92
-  _globals['_VERIFYACCOUNTREQUEST']._serialized_end=169
-  _globals['_VERIFYACCOUNTRESPONSE']._serialized_start=172
-  _globals['_VERIFYACCOUNTRESPONSE']._serialized_end=327
-  _globals['_NEWTOKENSREQUEST']._serialized_start=329
-  _globals['_NEWTOKENSREQUEST']._serialized_end=384
-  _globals['_NEWTOKENSRESPONSE']._serialized_start=386
-  _globals['_NEWTOKENSRESPONSE']._serialized_end=477
-  _globals['_REGISTERREQUEST']._serialized_start=479
-  _globals['_REGISTERREQUEST']._serialized_end=566
-  _globals['_REGISTERRESPONSE']._serialized_start=568
-  _globals['_REGISTERRESPONSE']._serialized_end=602
-  _globals['_LOGINREQUEST']._serialized_start=604
-  _globals['_LOGINREQUEST']._serialized_end=668
-  _globals['_LOGINRESPONSE']._serialized_start=671
-  _globals['_LOGINRESPONSE']._serialized_end=818
-  _globals['_AUTHSERVICE']._serialized_start=821
-  _globals['_AUTHSERVICE']._serialized_end=1103
+  _globals['_VERIFYACCOUNTRESPONSE'].fields_by_name['id']._options = None
+  _globals['_VERIFYACCOUNTRESPONSE'].fields_by_name['id']._serialized_options = b'\272H\005r\003\260\001\001'
+  _globals['_RESETPASSWORDREQUEST']._serialized_start=93
+  _globals['_RESETPASSWORDREQUEST']._serialized_end=230
+  _globals['_RESETPASSWORDRESPONSE']._serialized_start=232
+  _globals['_RESETPASSWORDRESPONSE']._serialized_end=271
+  _globals['_RESENDVERIFYCODEREQUEST']._serialized_start=273
+  _globals['_RESENDVERIFYCODEREQUEST']._serialized_end=375
+  _globals['_RESENDVERIFYCODERESPONSE']._serialized_start=378
+  _globals['_RESENDVERIFYCODERESPONSE']._serialized_end=546
+  _globals['_VERIFYACCOUNTREQUEST']._serialized_start=548
+  _globals['_VERIFYACCOUNTREQUEST']._serialized_end=647
+  _globals['_VERIFYACCOUNTRESPONSE']._serialized_start=650
+  _globals['_VERIFYACCOUNTRESPONSE']._serialized_end=815
+  _globals['_NEWTOKENSREQUEST']._serialized_start=817
+  _globals['_NEWTOKENSREQUEST']._serialized_end=872
+  _globals['_NEWTOKENSRESPONSE']._serialized_start=874
+  _globals['_NEWTOKENSRESPONSE']._serialized_end=965
+  _globals['_REGISTERREQUEST']._serialized_start=967
+  _globals['_REGISTERREQUEST']._serialized_end=1054
+  _globals['_REGISTERRESPONSE']._serialized_start=1056
+  _globals['_REGISTERRESPONSE']._serialized_end=1090
+  _globals['_LOGINREQUEST']._serialized_start=1092
+  _globals['_LOGINREQUEST']._serialized_end=1156
+  _globals['_LOGINRESPONSE']._serialized_start=1159
+  _globals['_LOGINRESPONSE']._serialized_end=1306
+  _globals['_AUTHSERVICE']._serialized_start=1309
+  _globals['_AUTHSERVICE']._serialized_end=1760
 # @@protoc_insertion_point(module_scope)
