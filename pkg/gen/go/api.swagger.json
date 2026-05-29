@@ -20,15 +20,8 @@
     "authv1ConfirmResetPasswordResponse": {
       "type": "object",
       "properties": {
-        "email": {
-          "type": "string"
-        },
-        "newPassword": {
-          "type": "string"
-        },
-        "code": {
-          "type": "string",
-          "format": "int64"
+        "ok": {
+          "type": "boolean"
         }
       }
     },

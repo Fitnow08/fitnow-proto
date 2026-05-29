@@ -21,10 +21,7 @@ message ConfirmResetPasswordRequest{
   reserved 4,6;
 }
 message ConfirmResetPasswordResponse{
-  string email = 1;
-  string new_password = 2;
-  int64 code = 3;
-  reserved 4,6;
+ bool ok = 1;
 }
 message ResetPasswordRequest {
   string email = 1 [(buf.validate.field).string.email = true];

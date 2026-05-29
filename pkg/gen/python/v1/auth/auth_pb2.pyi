@@ -17,14 +17,10 @@ class ConfirmResetPasswordRequest(_message.Message):
     def __init__(self, email: _Optional[str] = ..., new_password: _Optional[str] = ..., code: _Optional[int] = ...) -> None: ...
 
 class ConfirmResetPasswordResponse(_message.Message):
-    __slots__ = ("email", "new_password", "code")
-    EMAIL_FIELD_NUMBER: _ClassVar[int]
-    NEW_PASSWORD_FIELD_NUMBER: _ClassVar[int]
-    CODE_FIELD_NUMBER: _ClassVar[int]
-    email: str
-    new_password: str
-    code: int
-    def __init__(self, email: _Optional[str] = ..., new_password: _Optional[str] = ..., code: _Optional[int] = ...) -> None: ...
+    __slots__ = ("ok",)
+    OK_FIELD_NUMBER: _ClassVar[int]
+    ok: bool
+    def __init__(self, ok: bool = ...) -> None: ...
 
 class ResetPasswordRequest(_message.Message):
     __slots__ = ("email",)
