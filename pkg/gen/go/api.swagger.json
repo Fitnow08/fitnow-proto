@@ -17,6 +17,21 @@
   ],
   "paths": {},
   "definitions": {
+    "authv1ConfirmResetPasswordResponse": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
     "authv1LoginResponse": {
       "type": "object",
       "properties": {
@@ -59,20 +74,8 @@
     "authv1ResendVerifyCodeResponse": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "refreshToken": {
-          "type": "string"
-        },
-        "accessToken": {
-          "type": "string"
+        "ok": {
+          "type": "boolean"
         }
       }
     },

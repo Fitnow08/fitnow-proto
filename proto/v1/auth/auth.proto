@@ -11,31 +11,34 @@ service AuthService {
   rpc NewTokens (NewTokensRequest) returns (NewTokensResponse) {}
   rpc VerifyAccount(VerifyAccountRequest) returns (VerifyAccountResponse) {}
   rpc ResendVerifyCode(ResendVerifyCodeRequest) returns (ResendVerifyCodeResponse){}
-  rpc ResetPassword(ResetPasswordRequest) returns(ResetPasswordResponse){}
+  rpc ResetPassword(ResetPasswordRequest) returns (ResetPasswordResponse){}
+  rpc ConfirmResetPassword(ConfirmResetPasswordRequest) returns (ConfirmResetPasswordResponse){}
 }
-
+message ConfirmResetPasswordRequest{
+  string email = 1;
+  string new_password = 2;
+  int64 code = 3;
+  reserved 4,6;
+}
+message ConfirmResetPasswordResponse{
+  string email = 1;
+  string new_password = 2;
+  int64 code = 3;
+  reserved 4,6;
+}
 message ResetPasswordRequest {
   string email = 1 [(buf.validate.field).string.email = true];
-  string reset_code = 2 [(buf.validate.field).string.min_len = 4];
-  string new_password = 3 [(buf.validate.field).string.min_len = 8];
 }
 message ResetPasswordResponse{
   bool ok = 1;
 }
 message ResendVerifyCodeRequest {
   string email = 1;
-  int64 verify_code = 2 [
-    (buf.validate.field).int64.gt = 0,
-    json_name = "verify_code"
-  ];
-  reserved 3, 5;
+
+  reserved 2, 5;
 }
 message ResendVerifyCodeResponse{
-  string id = 1 [(buf.validate.field).string.uuid = true];
-  string email = 2;
-  string title = 3;
-  string refresh_token = 4;
-  string access_token = 5;
+  bool ok = 1 ;
 }
 message VerifyAccountRequest {
   string email = 1;
