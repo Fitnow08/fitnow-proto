@@ -13,14 +13,27 @@ service AuthService {
   rpc ResendVerifyCode(ResendVerifyCodeRequest) returns (ResendVerifyCodeResponse){}
   rpc ResetPassword(ResetPasswordRequest) returns (ResetPasswordResponse){}
   rpc ConfirmResetPassword(ConfirmResetPasswordRequest) returns (ConfirmResetPasswordResponse){}
+  rpc GetAllUsers(GetAllUsersRequest) returns(GetAllUsersResponse){}
+  rpc GetUserById(GetUserByIdRequest) returns(GetUserByIdResponse){}
 }
+message GetUserByIdRequest {
+  string id = 1 [(buf.validate.field).string.uuid = true];
+}
+message GetUserByIdResponse{
+  User user = 1;
+}
+message GetAllUsersRequest{}
+message GetAllUsersResponse{
+  repeated User  users= 1;
+}
+
 message ConfirmResetPasswordRequest{
   string email = 1;
   string new_password = 2;
   int64 code = 3;
   reserved 4,6;
 }
-message ConfirmResetPasswordResponse{
+  message ConfirmResetPasswordResponse{
  bool ok = 1;
 }
 message ResetPasswordRequest {
@@ -51,6 +64,7 @@ message VerifyAccountResponse {
   string title = 3;
   string refresh_token = 4;
   string access_token = 5;
+  string role = 6;
 }
 message NewTokensRequest {
   string refresh_token = 1;
@@ -79,4 +93,11 @@ message LoginResponse {
   string title = 3;
   string refresh_token = 4;
   string access_token = 5;
+}
+
+message User {
+  string id = 1 [(buf.validate.field).string.uuid = true];
+  string email = 2;
+  string title = 3;
+  string role = 4;
 }

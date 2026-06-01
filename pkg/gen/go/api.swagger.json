@@ -25,6 +25,26 @@
         }
       }
     },
+    "authv1GetAllUsersResponse": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/authv1User"
+          }
+        }
+      }
+    },
+    "authv1GetUserByIdResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/authv1User"
+        }
+      }
+    },
     "authv1LoginResponse": {
       "type": "object",
       "properties": {
@@ -80,6 +100,23 @@
         }
       }
     },
+    "authv1User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      }
+    },
     "authv1VerifyAccountResponse": {
       "type": "object",
       "properties": {
@@ -96,6 +133,9 @@
           "type": "string"
         },
         "accessToken": {
+          "type": "string"
+        },
+        "role": {
           "type": "string"
         }
       }

@@ -49,6 +49,16 @@ class AuthServiceStub(object):
                 request_serializer=v1_dot_auth_dot_auth__pb2.ConfirmResetPasswordRequest.SerializeToString,
                 response_deserializer=v1_dot_auth_dot_auth__pb2.ConfirmResetPasswordResponse.FromString,
                 _registered_method=True)
+        self.GetAllUsers = channel.unary_unary(
+                '/authv1.AuthService/GetAllUsers',
+                request_serializer=v1_dot_auth_dot_auth__pb2.GetAllUsersRequest.SerializeToString,
+                response_deserializer=v1_dot_auth_dot_auth__pb2.GetAllUsersResponse.FromString,
+                _registered_method=True)
+        self.GetUserById = channel.unary_unary(
+                '/authv1.AuthService/GetUserById',
+                request_serializer=v1_dot_auth_dot_auth__pb2.GetUserByIdRequest.SerializeToString,
+                response_deserializer=v1_dot_auth_dot_auth__pb2.GetUserByIdResponse.FromString,
+                _registered_method=True)
 
 
 class AuthServiceServicer(object):
@@ -96,6 +106,18 @@ class AuthServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllUsers(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetUserById(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AuthServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -133,6 +155,16 @@ def add_AuthServiceServicer_to_server(servicer, server):
                     servicer.ConfirmResetPassword,
                     request_deserializer=v1_dot_auth_dot_auth__pb2.ConfirmResetPasswordRequest.FromString,
                     response_serializer=v1_dot_auth_dot_auth__pb2.ConfirmResetPasswordResponse.SerializeToString,
+            ),
+            'GetAllUsers': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAllUsers,
+                    request_deserializer=v1_dot_auth_dot_auth__pb2.GetAllUsersRequest.FromString,
+                    response_serializer=v1_dot_auth_dot_auth__pb2.GetAllUsersResponse.SerializeToString,
+            ),
+            'GetUserById': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserById,
+                    request_deserializer=v1_dot_auth_dot_auth__pb2.GetUserByIdRequest.FromString,
+                    response_serializer=v1_dot_auth_dot_auth__pb2.GetUserByIdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -324,6 +356,60 @@ class AuthService(object):
             '/authv1.AuthService/ConfirmResetPassword',
             v1_dot_auth_dot_auth__pb2.ConfirmResetPasswordRequest.SerializeToString,
             v1_dot_auth_dot_auth__pb2.ConfirmResetPasswordResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetAllUsers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/authv1.AuthService/GetAllUsers',
+            v1_dot_auth_dot_auth__pb2.GetAllUsersRequest.SerializeToString,
+            v1_dot_auth_dot_auth__pb2.GetAllUsersResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetUserById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/authv1.AuthService/GetUserById',
+            v1_dot_auth_dot_auth__pb2.GetUserByIdRequest.SerializeToString,
+            v1_dot_auth_dot_auth__pb2.GetUserByIdResponse.FromString,
             options,
             channel_credentials,
             insecure,
