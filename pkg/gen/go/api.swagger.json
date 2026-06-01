@@ -62,6 +62,9 @@
         },
         "accessToken": {
           "type": "string"
+        },
+        "role": {
+          "type": "string"
         }
       }
     },

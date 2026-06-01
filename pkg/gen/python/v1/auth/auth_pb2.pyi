@@ -132,18 +132,20 @@ class LoginRequest(_message.Message):
     def __init__(self, email: _Optional[str] = ..., password: _Optional[str] = ...) -> None: ...
 
 class LoginResponse(_message.Message):
-    __slots__ = ("id", "email", "title", "refresh_token", "access_token")
+    __slots__ = ("id", "email", "title", "refresh_token", "access_token", "role")
     ID_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     REFRESH_TOKEN_FIELD_NUMBER: _ClassVar[int]
     ACCESS_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    ROLE_FIELD_NUMBER: _ClassVar[int]
     id: str
     email: str
     title: str
     refresh_token: str
     access_token: str
-    def __init__(self, id: _Optional[str] = ..., email: _Optional[str] = ..., title: _Optional[str] = ..., refresh_token: _Optional[str] = ..., access_token: _Optional[str] = ...) -> None: ...
+    role: str
+    def __init__(self, id: _Optional[str] = ..., email: _Optional[str] = ..., title: _Optional[str] = ..., refresh_token: _Optional[str] = ..., access_token: _Optional[str] = ..., role: _Optional[str] = ...) -> None: ...
 
 class User(_message.Message):
     __slots__ = ("id", "email", "title", "role")
