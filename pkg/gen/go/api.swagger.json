@@ -7,6 +7,9 @@
   "tags": [
     {
       "name": "AuthService"
+    },
+    {
+      "name": "ProgramService"
     }
   ],
   "consumes": [
@@ -142,6 +145,224 @@
           "type": "string"
         }
       }
+    },
+    "programv1AddProgramImageResponse": {
+      "type": "object"
+    },
+    "programv1CreateProgramResponse": {
+      "type": "object"
+    },
+    "programv1DifficultyLevel": {
+      "type": "string",
+      "enum": [
+        "DIFFICULTY_LEVEL_UNSPECIFIED",
+        "DIFFICULTY_LEVEL_EASY",
+        "DIFFICULTY_LEVEL_MEDIUM",
+        "DIFFICULTY_LEVEL_HARD"
+      ],
+      "default": "DIFFICULTY_LEVEL_UNSPECIFIED"
+    },
+    "programv1GetAllProgramsResponse": {
+      "type": "object",
+      "properties": {
+        "programs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/programv1ProgramAndTrainsCount"
+          }
+        }
+      }
+    },
+    "programv1GetProgramsAndTrainsResponse": {
+      "type": "object",
+      "properties": {
+        "program": {
+          "$ref": "#/definitions/programv1Program"
+        },
+        "trains": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/programv1ProgramTrain"
+          }
+        }
+      }
+    },
+    "programv1Program": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "weeks": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "difficulty": {
+          "type": "string"
+        },
+        "isPublic": {
+          "type": "boolean"
+        },
+        "categoryId": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "programv1ProgramAndTrainsCount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "weeks": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "difficulty": {
+          "type": "string"
+        },
+        "isPublic": {
+          "type": "boolean"
+        },
+        "categoryId": {
+          "type": "string"
+        },
+        "imagePath": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "string",
+          "format": "int64"
+        },
+        "trainsCount": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "programv1ProgramTrain": {
+      "type": "object",
+      "properties": {
+        "train": {
+          "$ref": "#/definitions/programv1Train"
+        },
+        "weekNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dayOfWeek": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "position": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "programv1ProgramTrainInput": {
+      "type": "object",
+      "properties": {
+        "trainId": {
+          "type": "string"
+        },
+        "weekNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dayOfWeek": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "position": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "programv1Train": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isPublic": {
+          "type": "boolean"
+        },
+        "difficulty": {
+          "type": "string"
+        },
+        "calories": {
+          "type": "string",
+          "format": "int64"
+        },
+        "categoryId": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "programv1UploadAllProgramTrainsResponse": {
+      "type": "object"
     },
     "protobufAny": {
       "type": "object",

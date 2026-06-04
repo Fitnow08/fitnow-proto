@@ -1,0 +1,132 @@
+syntax = "proto3";
+
+package programv1;
+
+import "google/protobuf/timestamp.proto";
+
+service ProgramService {
+  rpc GetAllPrograms(GetAllProgramsRequest) returns(GetAllProgramsResponse){}
+  rpc CreateProgram(CreateProgramRequest) returns (CreateProgramResponse){}
+  rpc AddProgramImage(AddProgramImageRequest) returns (AddProgramImageResponse){}
+  rpc GetProgramsAndTrains(GetProgramsAndTrainsRequest) returns(GetProgramsAndTrainsResponse) {}
+  rpc UploadAllProgramTrains(UploadAllProgramTrainsRequest) returns (UploadAllProgramTrainsResponse) {}
+}
+
+message UploadAllProgramTrainsRequest{
+  string program_id = 1;
+  repeated ProgramTrainInput trains = 2;
+}
+
+message UploadAllProgramTrainsResponse {}
+
+message ProgramTrainInput {
+  string train_id = 1;
+  int32 week_number = 2;
+  int32 day_of_week = 3;
+  int32 position = 4;
+}
+
+message AddProgramTrainsRequest {
+  string program_id = 1;
+  repeated ProgramTrainInput trains = 2;
+}
+message GetProgramsAndTrainsRequest {
+  string program_id = 1;
+}
+message GetProgramsAndTrainsResponse {
+  Program program = 1;
+  repeated ProgramTrain trains = 2;
+}
+
+message Program {
+  string id = 1;
+  string title = 2;
+  int32 weeks = 3;
+  string difficulty = 4;
+  bool is_public = 5;
+
+  optional string category_id = 6;
+
+  string image_url = 7;
+
+  google.protobuf.Timestamp created_at = 8;
+  google.protobuf.Timestamp updated_at = 9;
+
+  int64 version = 10;
+}
+message Train {
+  string id = 1;
+  string title = 2;
+  string type = 3;
+  int64 duration = 4;
+  bool is_public = 5;
+  string difficulty = 6;
+  int64 calories = 7;
+  string category_id = 8;
+  string image_url = 9;
+  string created_by = 10;
+  google.protobuf.Timestamp created_at = 11;
+}
+
+message ProgramTrain {
+  Train train = 1;
+
+  int32 week_number = 2;
+  int32 day_of_week = 3;
+  int32 position = 4;
+}
+message AddProgramImageRequest {
+  string program_id = 1;
+  string extension = 2;
+  string content_type = 3;
+  bytes image = 4;
+}
+
+message AddProgramImageResponse {}
+message CreateProgramRequest {
+  string title = 1;
+  string description = 2;
+  int32 weeks = 3;
+  DifficultyLevel difficulty = 4;
+  optional string category_id = 5;
+}
+
+message CreateProgramResponse {}
+
+message GetAllProgramsRequest {
+  string category_id = 1;
+  string search = 2;
+}
+
+message GetAllProgramsResponse{
+  repeated ProgramAndTrainsCount programs = 1;
+}
+
+message ProgramAndTrainsCount {
+  string id = 1;
+  string title = 2;
+  string desc = 3;
+  int32 weeks = 4;
+  string difficulty = 5;
+  bool is_public = 6;
+
+  optional string category_id = 7;
+
+  string image_path = 8;
+  string image_url = 9;
+
+  string created_by = 10;
+
+  google.protobuf.Timestamp created_at = 11;
+  google.protobuf.Timestamp updated_at = 12;
+
+  int64 version = 13;
+  int64 trains_count = 14;
+}
+
+enum DifficultyLevel {
+  DIFFICULTY_LEVEL_UNSPECIFIED = 0;
+  DIFFICULTY_LEVEL_EASY = 1;
+  DIFFICULTY_LEVEL_MEDIUM = 2;
+  DIFFICULTY_LEVEL_HARD = 3;
+}
