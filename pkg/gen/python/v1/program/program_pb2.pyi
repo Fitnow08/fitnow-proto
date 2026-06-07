@@ -51,10 +51,12 @@ class AddProgramTrainsRequest(_message.Message):
     def __init__(self, program_id: _Optional[str] = ..., trains: _Optional[_Iterable[_Union[ProgramTrainInput, _Mapping]]] = ...) -> None: ...
 
 class GetProgramsAndTrainsRequest(_message.Message):
-    __slots__ = ("program_id",)
+    __slots__ = ("program_id", "search")
     PROGRAM_ID_FIELD_NUMBER: _ClassVar[int]
+    SEARCH_FIELD_NUMBER: _ClassVar[int]
     program_id: str
-    def __init__(self, program_id: _Optional[str] = ...) -> None: ...
+    search: str
+    def __init__(self, program_id: _Optional[str] = ..., search: _Optional[str] = ...) -> None: ...
 
 class GetProgramsAndTrainsResponse(_message.Message):
     __slots__ = ("program", "trains")

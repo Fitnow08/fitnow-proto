@@ -32,6 +32,7 @@ message AddProgramTrainsRequest {
 }
 message GetProgramsAndTrainsRequest {
   string program_id = 1;
+  string search = 2;
 }
 message GetProgramsAndTrainsResponse {
   Program program = 1;
