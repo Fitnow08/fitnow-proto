@@ -32,7 +32,6 @@ message AddProgramTrainsRequest {
 }
 message GetProgramsAndTrainsRequest {
   string program_id = 1;
-  string search = 2;
 }
 message GetProgramsAndTrainsResponse {
   Program program = 1;
@@ -54,6 +53,8 @@ message Program {
   google.protobuf.Timestamp updated_at = 9;
 
   int64 version = 10;
+  string desc = 11;
+  string user_id = 12;
 }
 message Train {
   string id = 1;
@@ -67,6 +68,7 @@ message Train {
   string image_url = 9;
   string created_by = 10;
   google.protobuf.Timestamp created_at = 11;
+
 }
 
 message ProgramTrain {

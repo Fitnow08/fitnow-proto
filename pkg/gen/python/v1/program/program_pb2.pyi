@@ -51,12 +51,10 @@ class AddProgramTrainsRequest(_message.Message):
     def __init__(self, program_id: _Optional[str] = ..., trains: _Optional[_Iterable[_Union[ProgramTrainInput, _Mapping]]] = ...) -> None: ...
 
 class GetProgramsAndTrainsRequest(_message.Message):
-    __slots__ = ("program_id", "search")
+    __slots__ = ("program_id",)
     PROGRAM_ID_FIELD_NUMBER: _ClassVar[int]
-    SEARCH_FIELD_NUMBER: _ClassVar[int]
     program_id: str
-    search: str
-    def __init__(self, program_id: _Optional[str] = ..., search: _Optional[str] = ...) -> None: ...
+    def __init__(self, program_id: _Optional[str] = ...) -> None: ...
 
 class GetProgramsAndTrainsResponse(_message.Message):
     __slots__ = ("program", "trains")
@@ -67,7 +65,7 @@ class GetProgramsAndTrainsResponse(_message.Message):
     def __init__(self, program: _Optional[_Union[Program, _Mapping]] = ..., trains: _Optional[_Iterable[_Union[ProgramTrain, _Mapping]]] = ...) -> None: ...
 
 class Program(_message.Message):
-    __slots__ = ("id", "title", "weeks", "difficulty", "is_public", "category_id", "image_url", "created_at", "updated_at", "version")
+    __slots__ = ("id", "title", "weeks", "difficulty", "is_public", "category_id", "image_url", "created_at", "updated_at", "version", "desc", "user_id")
     ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     WEEKS_FIELD_NUMBER: _ClassVar[int]
@@ -78,6 +76,8 @@ class Program(_message.Message):
     CREATED_AT_FIELD_NUMBER: _ClassVar[int]
     UPDATED_AT_FIELD_NUMBER: _ClassVar[int]
     VERSION_FIELD_NUMBER: _ClassVar[int]
+    DESC_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
     id: str
     title: str
     weeks: int
@@ -88,7 +88,9 @@ class Program(_message.Message):
     created_at: _timestamp_pb2.Timestamp
     updated_at: _timestamp_pb2.Timestamp
     version: int
-    def __init__(self, id: _Optional[str] = ..., title: _Optional[str] = ..., weeks: _Optional[int] = ..., difficulty: _Optional[str] = ..., is_public: bool = ..., category_id: _Optional[str] = ..., image_url: _Optional[str] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., version: _Optional[int] = ...) -> None: ...
+    desc: str
+    user_id: str
+    def __init__(self, id: _Optional[str] = ..., title: _Optional[str] = ..., weeks: _Optional[int] = ..., difficulty: _Optional[str] = ..., is_public: bool = ..., category_id: _Optional[str] = ..., image_url: _Optional[str] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., version: _Optional[int] = ..., desc: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class Train(_message.Message):
     __slots__ = ("id", "title", "type", "duration", "is_public", "difficulty", "calories", "category_id", "image_url", "created_by", "created_at")

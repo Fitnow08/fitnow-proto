@@ -225,6 +225,12 @@
         "version": {
           "type": "string",
           "format": "int64"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
         }
       }
     },
