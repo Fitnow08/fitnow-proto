@@ -147,18 +147,20 @@ class AddProgramImageResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class CreateProgramRequest(_message.Message):
-    __slots__ = ("title", "description", "weeks", "difficulty", "category_id")
+    __slots__ = ("title", "description", "weeks", "difficulty", "category_id", "user_id")
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     WEEKS_FIELD_NUMBER: _ClassVar[int]
     DIFFICULTY_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_ID_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
     title: str
     description: str
     weeks: int
     difficulty: DifficultyLevel
     category_id: str
-    def __init__(self, title: _Optional[str] = ..., description: _Optional[str] = ..., weeks: _Optional[int] = ..., difficulty: _Optional[_Union[DifficultyLevel, str]] = ..., category_id: _Optional[str] = ...) -> None: ...
+    user_id: str
+    def __init__(self, title: _Optional[str] = ..., description: _Optional[str] = ..., weeks: _Optional[int] = ..., difficulty: _Optional[_Union[DifficultyLevel, str]] = ..., category_id: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class CreateProgramResponse(_message.Message):
     __slots__ = ()

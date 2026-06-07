@@ -86,12 +86,14 @@ message AddProgramImageRequest {
 }
 
 message AddProgramImageResponse {}
+
 message CreateProgramRequest {
   string title = 1;
   string description = 2;
   int32 weeks = 3;
   DifficultyLevel difficulty = 4;
   optional string category_id = 5;
+  string user_id = 6;
 }
 
 message CreateProgramResponse {}
