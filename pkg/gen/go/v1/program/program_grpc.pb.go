@@ -24,6 +24,10 @@ const (
 	ProgramService_AddProgramImage_FullMethodName        = "/programv1.ProgramService/AddProgramImage"
 	ProgramService_GetProgramsAndTrains_FullMethodName   = "/programv1.ProgramService/GetProgramsAndTrains"
 	ProgramService_UploadAllProgramTrains_FullMethodName = "/programv1.ProgramService/UploadAllProgramTrains"
+	ProgramService_GetAllProgramCategory_FullMethodName  = "/programv1.ProgramService/GetAllProgramCategory"
+	ProgramService_CreateProgramCategory_FullMethodName  = "/programv1.ProgramService/CreateProgramCategory"
+	ProgramService_UpdateProgramCategory_FullMethodName  = "/programv1.ProgramService/UpdateProgramCategory"
+	ProgramService_DeleteProgramCategory_FullMethodName  = "/programv1.ProgramService/DeleteProgramCategory"
 )
 
 // ProgramServiceClient is the client API for ProgramService service.
@@ -35,6 +39,10 @@ type ProgramServiceClient interface {
 	AddProgramImage(ctx context.Context, in *AddProgramImageRequest, opts ...grpc.CallOption) (*AddProgramImageResponse, error)
 	GetProgramsAndTrains(ctx context.Context, in *GetProgramsAndTrainsRequest, opts ...grpc.CallOption) (*GetProgramsAndTrainsResponse, error)
 	UploadAllProgramTrains(ctx context.Context, in *UploadAllProgramTrainsRequest, opts ...grpc.CallOption) (*UploadAllProgramTrainsResponse, error)
+	GetAllProgramCategory(ctx context.Context, in *GetAllProgramCategoryRequest, opts ...grpc.CallOption) (*GetAllProgramCategoryResponse, error)
+	CreateProgramCategory(ctx context.Context, in *CreateProgramCategoryRequest, opts ...grpc.CallOption) (*CreateProgramCategoryResponse, error)
+	UpdateProgramCategory(ctx context.Context, in *UpdateProgramCategoryRequest, opts ...grpc.CallOption) (*UpdateProgramCategoryResponse, error)
+	DeleteProgramCategory(ctx context.Context, in *DeleteProgramCategoryRequest, opts ...grpc.CallOption) (*DeleteProgramCategoryResponse, error)
 }
 
 type programServiceClient struct {
@@ -95,6 +103,46 @@ func (c *programServiceClient) UploadAllProgramTrains(ctx context.Context, in *U
 	return out, nil
 }
 
+func (c *programServiceClient) GetAllProgramCategory(ctx context.Context, in *GetAllProgramCategoryRequest, opts ...grpc.CallOption) (*GetAllProgramCategoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAllProgramCategoryResponse)
+	err := c.cc.Invoke(ctx, ProgramService_GetAllProgramCategory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *programServiceClient) CreateProgramCategory(ctx context.Context, in *CreateProgramCategoryRequest, opts ...grpc.CallOption) (*CreateProgramCategoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateProgramCategoryResponse)
+	err := c.cc.Invoke(ctx, ProgramService_CreateProgramCategory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *programServiceClient) UpdateProgramCategory(ctx context.Context, in *UpdateProgramCategoryRequest, opts ...grpc.CallOption) (*UpdateProgramCategoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateProgramCategoryResponse)
+	err := c.cc.Invoke(ctx, ProgramService_UpdateProgramCategory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *programServiceClient) DeleteProgramCategory(ctx context.Context, in *DeleteProgramCategoryRequest, opts ...grpc.CallOption) (*DeleteProgramCategoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteProgramCategoryResponse)
+	err := c.cc.Invoke(ctx, ProgramService_DeleteProgramCategory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProgramServiceServer is the server API for ProgramService service.
 // All implementations must embed UnimplementedProgramServiceServer
 // for forward compatibility.
@@ -104,6 +152,10 @@ type ProgramServiceServer interface {
 	AddProgramImage(context.Context, *AddProgramImageRequest) (*AddProgramImageResponse, error)
 	GetProgramsAndTrains(context.Context, *GetProgramsAndTrainsRequest) (*GetProgramsAndTrainsResponse, error)
 	UploadAllProgramTrains(context.Context, *UploadAllProgramTrainsRequest) (*UploadAllProgramTrainsResponse, error)
+	GetAllProgramCategory(context.Context, *GetAllProgramCategoryRequest) (*GetAllProgramCategoryResponse, error)
+	CreateProgramCategory(context.Context, *CreateProgramCategoryRequest) (*CreateProgramCategoryResponse, error)
+	UpdateProgramCategory(context.Context, *UpdateProgramCategoryRequest) (*UpdateProgramCategoryResponse, error)
+	DeleteProgramCategory(context.Context, *DeleteProgramCategoryRequest) (*DeleteProgramCategoryResponse, error)
 	mustEmbedUnimplementedProgramServiceServer()
 }
 
@@ -128,6 +180,18 @@ func (UnimplementedProgramServiceServer) GetProgramsAndTrains(context.Context, *
 }
 func (UnimplementedProgramServiceServer) UploadAllProgramTrains(context.Context, *UploadAllProgramTrainsRequest) (*UploadAllProgramTrainsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UploadAllProgramTrains not implemented")
+}
+func (UnimplementedProgramServiceServer) GetAllProgramCategory(context.Context, *GetAllProgramCategoryRequest) (*GetAllProgramCategoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllProgramCategory not implemented")
+}
+func (UnimplementedProgramServiceServer) CreateProgramCategory(context.Context, *CreateProgramCategoryRequest) (*CreateProgramCategoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateProgramCategory not implemented")
+}
+func (UnimplementedProgramServiceServer) UpdateProgramCategory(context.Context, *UpdateProgramCategoryRequest) (*UpdateProgramCategoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateProgramCategory not implemented")
+}
+func (UnimplementedProgramServiceServer) DeleteProgramCategory(context.Context, *DeleteProgramCategoryRequest) (*DeleteProgramCategoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteProgramCategory not implemented")
 }
 func (UnimplementedProgramServiceServer) mustEmbedUnimplementedProgramServiceServer() {}
 func (UnimplementedProgramServiceServer) testEmbeddedByValue()                        {}
@@ -240,6 +304,78 @@ func _ProgramService_UploadAllProgramTrains_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProgramService_GetAllProgramCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllProgramCategoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProgramServiceServer).GetAllProgramCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProgramService_GetAllProgramCategory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProgramServiceServer).GetAllProgramCategory(ctx, req.(*GetAllProgramCategoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProgramService_CreateProgramCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateProgramCategoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProgramServiceServer).CreateProgramCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProgramService_CreateProgramCategory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProgramServiceServer).CreateProgramCategory(ctx, req.(*CreateProgramCategoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProgramService_UpdateProgramCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateProgramCategoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProgramServiceServer).UpdateProgramCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProgramService_UpdateProgramCategory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProgramServiceServer).UpdateProgramCategory(ctx, req.(*UpdateProgramCategoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProgramService_DeleteProgramCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteProgramCategoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProgramServiceServer).DeleteProgramCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProgramService_DeleteProgramCategory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProgramServiceServer).DeleteProgramCategory(ctx, req.(*DeleteProgramCategoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProgramService_ServiceDesc is the grpc.ServiceDesc for ProgramService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -266,6 +402,22 @@ var ProgramService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UploadAllProgramTrains",
 			Handler:    _ProgramService_UploadAllProgramTrains_Handler,
+		},
+		{
+			MethodName: "GetAllProgramCategory",
+			Handler:    _ProgramService_GetAllProgramCategory_Handler,
+		},
+		{
+			MethodName: "CreateProgramCategory",
+			Handler:    _ProgramService_CreateProgramCategory_Handler,
+		},
+		{
+			MethodName: "UpdateProgramCategory",
+			Handler:    _ProgramService_UpdateProgramCategory_Handler,
+		},
+		{
+			MethodName: "DeleteProgramCategory",
+			Handler:    _ProgramService_DeleteProgramCategory_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

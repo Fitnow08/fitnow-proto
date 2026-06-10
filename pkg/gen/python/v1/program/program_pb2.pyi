@@ -18,6 +18,64 @@ DIFFICULTY_LEVEL_EASY: DifficultyLevel
 DIFFICULTY_LEVEL_MEDIUM: DifficultyLevel
 DIFFICULTY_LEVEL_HARD: DifficultyLevel
 
+class DeleteProgramCategoryResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class DeleteProgramCategoryRequest(_message.Message):
+    __slots__ = ("id",)
+    ID_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    def __init__(self, id: _Optional[str] = ...) -> None: ...
+
+class UpdateProgramCategoryRequest(_message.Message):
+    __slots__ = ("id", "title")
+    ID_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    title: str
+    def __init__(self, id: _Optional[str] = ..., title: _Optional[str] = ...) -> None: ...
+
+class UpdateProgramCategoryResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class CreateProgramCategoryRequest(_message.Message):
+    __slots__ = ("title",)
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    title: str
+    def __init__(self, title: _Optional[str] = ...) -> None: ...
+
+class CreateProgramCategoryResponse(_message.Message):
+    __slots__ = ("train",)
+    TRAIN_FIELD_NUMBER: _ClassVar[int]
+    train: ProgramCategory
+    def __init__(self, train: _Optional[_Union[ProgramCategory, _Mapping]] = ...) -> None: ...
+
+class GetAllProgramCategoryRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetAllProgramCategoryResponse(_message.Message):
+    __slots__ = ("train",)
+    TRAIN_FIELD_NUMBER: _ClassVar[int]
+    train: _containers.RepeatedCompositeFieldContainer[ProgramCategory]
+    def __init__(self, train: _Optional[_Iterable[_Union[ProgramCategory, _Mapping]]] = ...) -> None: ...
+
+class ProgramCategory(_message.Message):
+    __slots__ = ("id", "name", "updated_at", "created_at", "version")
+    ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    UPDATED_AT_FIELD_NUMBER: _ClassVar[int]
+    CREATED_AT_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    name: str
+    updated_at: _timestamp_pb2.Timestamp
+    created_at: _timestamp_pb2.Timestamp
+    version: int
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., version: _Optional[int] = ...) -> None: ...
+
 class UploadAllProgramTrainsRequest(_message.Message):
     __slots__ = ("program_id", "trains")
     PROGRAM_ID_FIELD_NUMBER: _ClassVar[int]

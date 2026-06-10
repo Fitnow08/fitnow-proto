@@ -39,6 +39,26 @@ class ProgramServiceStub(object):
                 request_serializer=v1_dot_program_dot_program__pb2.UploadAllProgramTrainsRequest.SerializeToString,
                 response_deserializer=v1_dot_program_dot_program__pb2.UploadAllProgramTrainsResponse.FromString,
                 _registered_method=True)
+        self.GetAllProgramCategory = channel.unary_unary(
+                '/programv1.ProgramService/GetAllProgramCategory',
+                request_serializer=v1_dot_program_dot_program__pb2.GetAllProgramCategoryRequest.SerializeToString,
+                response_deserializer=v1_dot_program_dot_program__pb2.GetAllProgramCategoryResponse.FromString,
+                _registered_method=True)
+        self.CreateProgramCategory = channel.unary_unary(
+                '/programv1.ProgramService/CreateProgramCategory',
+                request_serializer=v1_dot_program_dot_program__pb2.CreateProgramCategoryRequest.SerializeToString,
+                response_deserializer=v1_dot_program_dot_program__pb2.CreateProgramCategoryResponse.FromString,
+                _registered_method=True)
+        self.UpdateProgramCategory = channel.unary_unary(
+                '/programv1.ProgramService/UpdateProgramCategory',
+                request_serializer=v1_dot_program_dot_program__pb2.UpdateProgramCategoryRequest.SerializeToString,
+                response_deserializer=v1_dot_program_dot_program__pb2.UpdateProgramCategoryResponse.FromString,
+                _registered_method=True)
+        self.DeleteProgramCategory = channel.unary_unary(
+                '/programv1.ProgramService/DeleteProgramCategory',
+                request_serializer=v1_dot_program_dot_program__pb2.DeleteProgramCategoryRequest.SerializeToString,
+                response_deserializer=v1_dot_program_dot_program__pb2.DeleteProgramCategoryResponse.FromString,
+                _registered_method=True)
 
 
 class ProgramServiceServicer(object):
@@ -74,6 +94,30 @@ class ProgramServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllProgramCategory(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateProgramCategory(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateProgramCategory(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteProgramCategory(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ProgramServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -101,6 +145,26 @@ def add_ProgramServiceServicer_to_server(servicer, server):
                     servicer.UploadAllProgramTrains,
                     request_deserializer=v1_dot_program_dot_program__pb2.UploadAllProgramTrainsRequest.FromString,
                     response_serializer=v1_dot_program_dot_program__pb2.UploadAllProgramTrainsResponse.SerializeToString,
+            ),
+            'GetAllProgramCategory': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAllProgramCategory,
+                    request_deserializer=v1_dot_program_dot_program__pb2.GetAllProgramCategoryRequest.FromString,
+                    response_serializer=v1_dot_program_dot_program__pb2.GetAllProgramCategoryResponse.SerializeToString,
+            ),
+            'CreateProgramCategory': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateProgramCategory,
+                    request_deserializer=v1_dot_program_dot_program__pb2.CreateProgramCategoryRequest.FromString,
+                    response_serializer=v1_dot_program_dot_program__pb2.CreateProgramCategoryResponse.SerializeToString,
+            ),
+            'UpdateProgramCategory': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateProgramCategory,
+                    request_deserializer=v1_dot_program_dot_program__pb2.UpdateProgramCategoryRequest.FromString,
+                    response_serializer=v1_dot_program_dot_program__pb2.UpdateProgramCategoryResponse.SerializeToString,
+            ),
+            'DeleteProgramCategory': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteProgramCategory,
+                    request_deserializer=v1_dot_program_dot_program__pb2.DeleteProgramCategoryRequest.FromString,
+                    response_serializer=v1_dot_program_dot_program__pb2.DeleteProgramCategoryResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -238,6 +302,114 @@ class ProgramService(object):
             '/programv1.ProgramService/UploadAllProgramTrains',
             v1_dot_program_dot_program__pb2.UploadAllProgramTrainsRequest.SerializeToString,
             v1_dot_program_dot_program__pb2.UploadAllProgramTrainsResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetAllProgramCategory(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/programv1.ProgramService/GetAllProgramCategory',
+            v1_dot_program_dot_program__pb2.GetAllProgramCategoryRequest.SerializeToString,
+            v1_dot_program_dot_program__pb2.GetAllProgramCategoryResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CreateProgramCategory(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/programv1.ProgramService/CreateProgramCategory',
+            v1_dot_program_dot_program__pb2.CreateProgramCategoryRequest.SerializeToString,
+            v1_dot_program_dot_program__pb2.CreateProgramCategoryResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def UpdateProgramCategory(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/programv1.ProgramService/UpdateProgramCategory',
+            v1_dot_program_dot_program__pb2.UpdateProgramCategoryRequest.SerializeToString,
+            v1_dot_program_dot_program__pb2.UpdateProgramCategoryResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeleteProgramCategory(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/programv1.ProgramService/DeleteProgramCategory',
+            v1_dot_program_dot_program__pb2.DeleteProgramCategoryRequest.SerializeToString,
+            v1_dot_program_dot_program__pb2.DeleteProgramCategoryResponse.FromString,
             options,
             channel_credentials,
             insecure,

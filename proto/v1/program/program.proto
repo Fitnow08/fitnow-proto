@@ -10,8 +10,40 @@ service ProgramService {
   rpc AddProgramImage(AddProgramImageRequest) returns (AddProgramImageResponse){}
   rpc GetProgramsAndTrains(GetProgramsAndTrainsRequest) returns(GetProgramsAndTrainsResponse) {}
   rpc UploadAllProgramTrains(UploadAllProgramTrainsRequest) returns (UploadAllProgramTrainsResponse) {}
+  rpc GetAllProgramCategory(GetAllProgramCategoryRequest) returns(GetAllProgramCategoryResponse){}
+  rpc CreateProgramCategory(CreateProgramCategoryRequest) returns(CreateProgramCategoryResponse){}
+  rpc UpdateProgramCategory(UpdateProgramCategoryRequest) returns(UpdateProgramCategoryResponse){}
+  rpc DeleteProgramCategory(DeleteProgramCategoryRequest) returns (DeleteProgramCategoryResponse){}
+}
+message DeleteProgramCategoryResponse{}
+message DeleteProgramCategoryRequest {
+  string id = 1;
+}
+message UpdateProgramCategoryRequest {
+  string id = 1;
+  string title = 2;
+}
+message UpdateProgramCategoryResponse {}
+message CreateProgramCategoryRequest {
+  string title = 1;
+}
+message    CreateProgramCategoryResponse {
+  ProgramCategory train = 1;
+}
+message GetAllProgramCategoryRequest{
+
+}
+message GetAllProgramCategoryResponse{
+  repeated ProgramCategory train = 1;
 }
 
+message ProgramCategory {
+  string id = 1;
+  string name = 2;
+  google.protobuf.Timestamp updated_at = 3;
+  google.protobuf.Timestamp created_at = 4;
+  int32 version = 5;
+}
 message UploadAllProgramTrainsRequest{
   string program_id = 1;
   repeated ProgramTrainInput trains = 2;

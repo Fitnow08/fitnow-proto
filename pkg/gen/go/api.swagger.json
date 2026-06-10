@@ -10,6 +10,9 @@
     },
     {
       "name": "ProgramService"
+    },
+    {
+      "name": "TrainService"
     }
   ],
   "consumes": [
@@ -149,7 +152,18 @@
     "programv1AddProgramImageResponse": {
       "type": "object"
     },
+    "programv1CreateProgramCategoryResponse": {
+      "type": "object",
+      "properties": {
+        "train": {
+          "$ref": "#/definitions/programv1ProgramCategory"
+        }
+      }
+    },
     "programv1CreateProgramResponse": {
+      "type": "object"
+    },
+    "programv1DeleteProgramCategoryResponse": {
       "type": "object"
     },
     "programv1DifficultyLevel": {
@@ -161,6 +175,18 @@
         "DIFFICULTY_LEVEL_HARD"
       ],
       "default": "DIFFICULTY_LEVEL_UNSPECIFIED"
+    },
+    "programv1GetAllProgramCategoryResponse": {
+      "type": "object",
+      "properties": {
+        "train": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/programv1ProgramCategory"
+          }
+        }
+      }
     },
     "programv1GetAllProgramsResponse": {
       "type": "object",
@@ -286,6 +312,29 @@
         }
       }
     },
+    "programv1ProgramCategory": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
     "programv1ProgramTrain": {
       "type": "object",
       "properties": {
@@ -367,6 +416,9 @@
         }
       }
     },
+    "programv1UpdateProgramCategoryResponse": {
+      "type": "object"
+    },
     "programv1UploadAllProgramTrainsResponse": {
       "type": "object"
     },
@@ -397,6 +449,112 @@
           }
         }
       }
+    },
+    "trainv1AddTrainImageResponse": {
+      "type": "object"
+    },
+    "trainv1CreateTrainResponse": {
+      "type": "object",
+      "properties": {
+        "train": {
+          "$ref": "#/definitions/trainv1Train"
+        }
+      }
+    },
+    "trainv1DeleteTrainResponse": {
+      "type": "object"
+    },
+    "trainv1Difficulty": {
+      "type": "string",
+      "enum": [
+        "DIFFICULTY_UNSPECIFIED",
+        "DIFFICULTY_EASY",
+        "DIFFICULTY_MEDIUM",
+        "DIFFICULTY_HARD"
+      ],
+      "default": "DIFFICULTY_UNSPECIFIED"
+    },
+    "trainv1GetAllTrainsResponse": {
+      "type": "object",
+      "properties": {
+        "trains": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/trainv1Train"
+          }
+        }
+      }
+    },
+    "trainv1GetTrainByIdResponse": {
+      "type": "object",
+      "properties": {
+        "train": {
+          "$ref": "#/definitions/trainv1Train"
+        }
+      }
+    },
+    "trainv1Train": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isPublic": {
+          "type": "boolean"
+        },
+        "difficulty": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "categoryId": {
+          "type": "string"
+        },
+        "calories": {
+          "type": "string",
+          "format": "int64"
+        },
+        "imagePath": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "trainv1TrainType": {
+      "type": "string",
+      "enum": [
+        "TRAIN_TYPE_UNSPECIFIED",
+        "TRAIN_TYPE_STRENGTH",
+        "TRAIN_TYPE_CARDIO",
+        "TRAIN_TYPE_STRETCHING"
+      ],
+      "default": "TRAIN_TYPE_UNSPECIFIED"
+    },
+    "trainv1UpdateTrainResponse": {
+      "type": "object"
     }
   }
 }
