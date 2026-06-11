@@ -30,10 +30,12 @@ DIFFICULTY_MEDIUM: Difficulty
 DIFFICULTY_HARD: Difficulty
 
 class GetAllAdminTrainsResponse(_message.Message):
-    __slots__ = ("trains",)
+    __slots__ = ("trains", "total_count")
     TRAINS_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_COUNT_FIELD_NUMBER: _ClassVar[int]
     trains: _containers.RepeatedCompositeFieldContainer[Train]
-    def __init__(self, trains: _Optional[_Iterable[_Union[Train, _Mapping]]] = ...) -> None: ...
+    total_count: int
+    def __init__(self, trains: _Optional[_Iterable[_Union[Train, _Mapping]]] = ..., total_count: _Optional[int] = ...) -> None: ...
 
 class GetAllAdminTrainsRequest(_message.Message):
     __slots__ = ("page", "limit", "category_id", "text")

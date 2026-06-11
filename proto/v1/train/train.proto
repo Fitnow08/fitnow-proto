@@ -15,6 +15,7 @@ service TrainService {
 }
 message GetAllAdminTrainsResponse {
   repeated Train trains = 1;
+  int64 total_count =2;
 }
 message GetAllAdminTrainsRequest {
   uint64 page = 1;
