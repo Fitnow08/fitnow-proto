@@ -29,6 +29,32 @@ DIFFICULTY_EASY: Difficulty
 DIFFICULTY_MEDIUM: Difficulty
 DIFFICULTY_HARD: Difficulty
 
+class AddTrainExercisesResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class AddTrainExercisesRequest(_message.Message):
+    __slots__ = ("train_id", "exercises")
+    TRAIN_ID_FIELD_NUMBER: _ClassVar[int]
+    EXERCISES_FIELD_NUMBER: _ClassVar[int]
+    train_id: str
+    exercises: _containers.RepeatedCompositeFieldContainer[TrainExerciseInput]
+    def __init__(self, train_id: _Optional[str] = ..., exercises: _Optional[_Iterable[_Union[TrainExerciseInput, _Mapping]]] = ...) -> None: ...
+
+class GetTrainAndExercisesRequest(_message.Message):
+    __slots__ = ("strain_id",)
+    STRAIN_ID_FIELD_NUMBER: _ClassVar[int]
+    strain_id: str
+    def __init__(self, strain_id: _Optional[str] = ...) -> None: ...
+
+class GetTrainAndExercisesResponse(_message.Message):
+    __slots__ = ("train", "exercises")
+    TRAIN_FIELD_NUMBER: _ClassVar[int]
+    EXERCISES_FIELD_NUMBER: _ClassVar[int]
+    train: Train
+    exercises: _containers.RepeatedCompositeFieldContainer[TrainExercise]
+    def __init__(self, train: _Optional[_Union[Train, _Mapping]] = ..., exercises: _Optional[_Iterable[_Union[TrainExercise, _Mapping]]] = ...) -> None: ...
+
 class GetAllAdminTrainsResponse(_message.Message):
     __slots__ = ("trains", "total_count")
     TRAINS_FIELD_NUMBER: _ClassVar[int]
@@ -190,3 +216,35 @@ class Train(_message.Message):
     updated_at: _timestamp_pb2.Timestamp
     version: int
     def __init__(self, id: _Optional[str] = ..., title: _Optional[str] = ..., type: _Optional[str] = ..., duration: _Optional[int] = ..., is_public: bool = ..., difficulty: _Optional[str] = ..., created_by: _Optional[str] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., category_id: _Optional[str] = ..., calories: _Optional[int] = ..., image_path: _Optional[str] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., version: _Optional[int] = ...) -> None: ...
+
+class TrainExerciseInput(_message.Message):
+    __slots__ = ("exercise_id", "steps", "sets", "position")
+    EXERCISE_ID_FIELD_NUMBER: _ClassVar[int]
+    STEPS_FIELD_NUMBER: _ClassVar[int]
+    SETS_FIELD_NUMBER: _ClassVar[int]
+    POSITION_FIELD_NUMBER: _ClassVar[int]
+    exercise_id: str
+    steps: int
+    sets: int
+    position: int
+    def __init__(self, exercise_id: _Optional[str] = ..., steps: _Optional[int] = ..., sets: _Optional[int] = ..., position: _Optional[int] = ...) -> None: ...
+
+class TrainExercise(_message.Message):
+    __slots__ = ("id", "title", "description", "video_url", "difficulty", "steps", "sets", "position")
+    ID_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    VIDEO_URL_FIELD_NUMBER: _ClassVar[int]
+    DIFFICULTY_FIELD_NUMBER: _ClassVar[int]
+    STEPS_FIELD_NUMBER: _ClassVar[int]
+    SETS_FIELD_NUMBER: _ClassVar[int]
+    POSITION_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    title: str
+    description: str
+    video_url: str
+    difficulty: Difficulty
+    steps: int
+    sets: int
+    position: int
+    def __init__(self, id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., video_url: _Optional[str] = ..., difficulty: _Optional[_Union[Difficulty, str]] = ..., steps: _Optional[int] = ..., sets: _Optional[int] = ..., position: _Optional[int] = ...) -> None: ...

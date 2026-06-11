@@ -11,7 +11,23 @@ service TrainService {
   rpc UpdateTrain(UpdateTrainRequest) returns(UpdateTrainResponse) {}
   rpc DeleteTrain(DeleteTrainRequest) returns(DeleteTrainResponse) {}
   rpc AddTrainImage(AddTrainImageRequest) returns (AddTrainImageResponse){}
+  rpc GetTrainAndExercises(GetTrainAndExercisesRequest) returns(GetTrainAndExercisesResponse){}
+  rpc AddTrainExercises(AddTrainExercisesRequest) returns(AddTrainExercisesResponse){}
   rpc GetAllAdminTrains(GetAllAdminTrainsRequest) returns (GetAllAdminTrainsResponse){}
+}
+message AddTrainExercisesResponse{
+
+}
+message AddTrainExercisesRequest{
+  string train_id = 1;
+  repeated TrainExerciseInput exercises = 2;
+}
+message GetTrainAndExercisesRequest{
+  string strain_id =1;
+}
+message GetTrainAndExercisesResponse{
+  Train train = 1;
+  repeated TrainExercise exercises =2;
 }
 message GetAllAdminTrainsResponse {
   repeated Train trains = 1;
@@ -97,7 +113,22 @@ message Train {
   google.protobuf.Timestamp updated_at = 12;
   int64 version = 13;
 }
-
+message TrainExerciseInput {
+  string exercise_id = 1;
+  int32 steps = 2;
+  int32 sets = 3;
+  int32 position = 4;
+}
+message TrainExercise {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  string video_url = 4;
+  Difficulty difficulty = 5;
+  int32 steps = 6;
+  int32 sets = 7;
+  int32 position = 8;
+}
 enum TrainType {
   TRAIN_TYPE_UNSPECIFIED = 0;
   TRAIN_TYPE_STRENGTH = 1;

@@ -450,6 +450,9 @@
         }
       }
     },
+    "trainv1AddTrainExercisesResponse": {
+      "type": "object"
+    },
     "trainv1AddTrainImageResponse": {
       "type": "object"
     },
@@ -508,6 +511,21 @@
         }
       }
     },
+    "trainv1GetTrainAndExercisesResponse": {
+      "type": "object",
+      "properties": {
+        "train": {
+          "$ref": "#/definitions/trainv1Train"
+        },
+        "exercises": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/trainv1TrainExercise"
+          }
+        }
+      }
+    },
     "trainv1GetTrainByIdResponse": {
       "type": "object",
       "properties": {
@@ -562,6 +580,58 @@
         "version": {
           "type": "string",
           "format": "int64"
+        }
+      }
+    },
+    "trainv1TrainExercise": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "videoUrl": {
+          "type": "string"
+        },
+        "difficulty": {
+          "$ref": "#/definitions/trainv1Difficulty"
+        },
+        "steps": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sets": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "position": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "trainv1TrainExerciseInput": {
+      "type": "object",
+      "properties": {
+        "exerciseId": {
+          "type": "string"
+        },
+        "steps": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sets": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "position": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },

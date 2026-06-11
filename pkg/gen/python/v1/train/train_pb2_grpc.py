@@ -44,6 +44,16 @@ class TrainServiceStub(object):
                 request_serializer=v1_dot_train_dot_train__pb2.AddTrainImageRequest.SerializeToString,
                 response_deserializer=v1_dot_train_dot_train__pb2.AddTrainImageResponse.FromString,
                 _registered_method=True)
+        self.GetTrainAndExercises = channel.unary_unary(
+                '/trainv1.TrainService/GetTrainAndExercises',
+                request_serializer=v1_dot_train_dot_train__pb2.GetTrainAndExercisesRequest.SerializeToString,
+                response_deserializer=v1_dot_train_dot_train__pb2.GetTrainAndExercisesResponse.FromString,
+                _registered_method=True)
+        self.AddTrainExercises = channel.unary_unary(
+                '/trainv1.TrainService/AddTrainExercises',
+                request_serializer=v1_dot_train_dot_train__pb2.AddTrainExercisesRequest.SerializeToString,
+                response_deserializer=v1_dot_train_dot_train__pb2.AddTrainExercisesResponse.FromString,
+                _registered_method=True)
         self.GetAllAdminTrains = channel.unary_unary(
                 '/trainv1.TrainService/GetAllAdminTrains',
                 request_serializer=v1_dot_train_dot_train__pb2.GetAllAdminTrainsRequest.SerializeToString,
@@ -90,6 +100,18 @@ class TrainServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetTrainAndExercises(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AddTrainExercises(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetAllAdminTrains(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -128,6 +150,16 @@ def add_TrainServiceServicer_to_server(servicer, server):
                     servicer.AddTrainImage,
                     request_deserializer=v1_dot_train_dot_train__pb2.AddTrainImageRequest.FromString,
                     response_serializer=v1_dot_train_dot_train__pb2.AddTrainImageResponse.SerializeToString,
+            ),
+            'GetTrainAndExercises': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTrainAndExercises,
+                    request_deserializer=v1_dot_train_dot_train__pb2.GetTrainAndExercisesRequest.FromString,
+                    response_serializer=v1_dot_train_dot_train__pb2.GetTrainAndExercisesResponse.SerializeToString,
+            ),
+            'AddTrainExercises': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddTrainExercises,
+                    request_deserializer=v1_dot_train_dot_train__pb2.AddTrainExercisesRequest.FromString,
+                    response_serializer=v1_dot_train_dot_train__pb2.AddTrainExercisesResponse.SerializeToString,
             ),
             'GetAllAdminTrains': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAllAdminTrains,
@@ -297,6 +329,60 @@ class TrainService(object):
             '/trainv1.TrainService/AddTrainImage',
             v1_dot_train_dot_train__pb2.AddTrainImageRequest.SerializeToString,
             v1_dot_train_dot_train__pb2.AddTrainImageResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetTrainAndExercises(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/trainv1.TrainService/GetTrainAndExercises',
+            v1_dot_train_dot_train__pb2.GetTrainAndExercisesRequest.SerializeToString,
+            v1_dot_train_dot_train__pb2.GetTrainAndExercisesResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def AddTrainExercises(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/trainv1.TrainService/AddTrainExercises',
+            v1_dot_train_dot_train__pb2.AddTrainExercisesRequest.SerializeToString,
+            v1_dot_train_dot_train__pb2.AddTrainExercisesResponse.FromString,
             options,
             channel_credentials,
             insecure,
