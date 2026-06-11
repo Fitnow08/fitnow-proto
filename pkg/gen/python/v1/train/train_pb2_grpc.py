@@ -46,8 +46,8 @@ class TrainServiceStub(object):
                 _registered_method=True)
         self.GetAllAdminTrains = channel.unary_unary(
                 '/trainv1.TrainService/GetAllAdminTrains',
-                request_serializer=v1_dot_train_dot_train__pb2.GetAllAdminTrainsResponse.SerializeToString,
-                response_deserializer=v1_dot_train_dot_train__pb2.GetAllAdminTrainsRequest.FromString,
+                request_serializer=v1_dot_train_dot_train__pb2.GetAllAdminTrainsRequest.SerializeToString,
+                response_deserializer=v1_dot_train_dot_train__pb2.GetAllAdminTrainsResponse.FromString,
                 _registered_method=True)
 
 
@@ -131,8 +131,8 @@ def add_TrainServiceServicer_to_server(servicer, server):
             ),
             'GetAllAdminTrains': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAllAdminTrains,
-                    request_deserializer=v1_dot_train_dot_train__pb2.GetAllAdminTrainsResponse.FromString,
-                    response_serializer=v1_dot_train_dot_train__pb2.GetAllAdminTrainsRequest.SerializeToString,
+                    request_deserializer=v1_dot_train_dot_train__pb2.GetAllAdminTrainsRequest.FromString,
+                    response_serializer=v1_dot_train_dot_train__pb2.GetAllAdminTrainsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -322,8 +322,8 @@ class TrainService(object):
             request,
             target,
             '/trainv1.TrainService/GetAllAdminTrains',
-            v1_dot_train_dot_train__pb2.GetAllAdminTrainsResponse.SerializeToString,
-            v1_dot_train_dot_train__pb2.GetAllAdminTrainsRequest.FromString,
+            v1_dot_train_dot_train__pb2.GetAllAdminTrainsRequest.SerializeToString,
+            v1_dot_train_dot_train__pb2.GetAllAdminTrainsResponse.FromString,
             options,
             channel_credentials,
             insecure,

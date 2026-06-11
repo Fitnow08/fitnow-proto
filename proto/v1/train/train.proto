@@ -11,7 +11,7 @@ service TrainService {
   rpc UpdateTrain(UpdateTrainRequest) returns(UpdateTrainResponse) {}
   rpc DeleteTrain(DeleteTrainRequest) returns(DeleteTrainResponse) {}
   rpc AddTrainImage(AddTrainImageRequest) returns (AddTrainImageResponse){}
-  rpc GetAllAdminTrains(GetAllAdminTrainsResponse) returns (GetAllAdminTrainsRequest){}
+  rpc GetAllAdminTrains(GetAllAdminTrainsRequest) returns (GetAllAdminTrainsResponse){}
 }
 message GetAllAdminTrainsResponse {
   repeated Train trains = 1;

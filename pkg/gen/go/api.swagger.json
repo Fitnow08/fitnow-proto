@@ -474,22 +474,19 @@
       ],
       "default": "DIFFICULTY_UNSPECIFIED"
     },
-    "trainv1GetAllAdminTrainsRequest": {
+    "trainv1GetAllAdminTrainsResponse": {
       "type": "object",
       "properties": {
-        "page": {
+        "trains": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/trainv1Train"
+          }
+        },
+        "totalCount": {
           "type": "string",
-          "format": "uint64"
-        },
-        "limit": {
-          "type": "string",
-          "format": "uint64"
-        },
-        "categoryId": {
-          "type": "string"
-        },
-        "text": {
-          "type": "string"
+          "format": "int64"
         }
       }
     },

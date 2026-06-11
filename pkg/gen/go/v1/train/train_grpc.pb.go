@@ -38,7 +38,7 @@ type TrainServiceClient interface {
 	UpdateTrain(ctx context.Context, in *UpdateTrainRequest, opts ...grpc.CallOption) (*UpdateTrainResponse, error)
 	DeleteTrain(ctx context.Context, in *DeleteTrainRequest, opts ...grpc.CallOption) (*DeleteTrainResponse, error)
 	AddTrainImage(ctx context.Context, in *AddTrainImageRequest, opts ...grpc.CallOption) (*AddTrainImageResponse, error)
-	GetAllAdminTrains(ctx context.Context, in *GetAllAdminTrainsResponse, opts ...grpc.CallOption) (*GetAllAdminTrainsRequest, error)
+	GetAllAdminTrains(ctx context.Context, in *GetAllAdminTrainsRequest, opts ...grpc.CallOption) (*GetAllAdminTrainsResponse, error)
 }
 
 type trainServiceClient struct {
@@ -109,9 +109,9 @@ func (c *trainServiceClient) AddTrainImage(ctx context.Context, in *AddTrainImag
 	return out, nil
 }
 
-func (c *trainServiceClient) GetAllAdminTrains(ctx context.Context, in *GetAllAdminTrainsResponse, opts ...grpc.CallOption) (*GetAllAdminTrainsRequest, error) {
+func (c *trainServiceClient) GetAllAdminTrains(ctx context.Context, in *GetAllAdminTrainsRequest, opts ...grpc.CallOption) (*GetAllAdminTrainsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAllAdminTrainsRequest)
+	out := new(GetAllAdminTrainsResponse)
 	err := c.cc.Invoke(ctx, TrainService_GetAllAdminTrains_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -129,7 +129,7 @@ type TrainServiceServer interface {
 	UpdateTrain(context.Context, *UpdateTrainRequest) (*UpdateTrainResponse, error)
 	DeleteTrain(context.Context, *DeleteTrainRequest) (*DeleteTrainResponse, error)
 	AddTrainImage(context.Context, *AddTrainImageRequest) (*AddTrainImageResponse, error)
-	GetAllAdminTrains(context.Context, *GetAllAdminTrainsResponse) (*GetAllAdminTrainsRequest, error)
+	GetAllAdminTrains(context.Context, *GetAllAdminTrainsRequest) (*GetAllAdminTrainsResponse, error)
 	mustEmbedUnimplementedTrainServiceServer()
 }
 
@@ -158,7 +158,7 @@ func (UnimplementedTrainServiceServer) DeleteTrain(context.Context, *DeleteTrain
 func (UnimplementedTrainServiceServer) AddTrainImage(context.Context, *AddTrainImageRequest) (*AddTrainImageResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddTrainImage not implemented")
 }
-func (UnimplementedTrainServiceServer) GetAllAdminTrains(context.Context, *GetAllAdminTrainsResponse) (*GetAllAdminTrainsRequest, error) {
+func (UnimplementedTrainServiceServer) GetAllAdminTrains(context.Context, *GetAllAdminTrainsRequest) (*GetAllAdminTrainsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllAdminTrains not implemented")
 }
 func (UnimplementedTrainServiceServer) mustEmbedUnimplementedTrainServiceServer() {}
@@ -291,7 +291,7 @@ func _TrainService_AddTrainImage_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _TrainService_GetAllAdminTrains_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllAdminTrainsResponse)
+	in := new(GetAllAdminTrainsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -303,7 +303,7 @@ func _TrainService_GetAllAdminTrains_Handler(srv interface{}, ctx context.Contex
 		FullMethod: TrainService_GetAllAdminTrains_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrainServiceServer).GetAllAdminTrains(ctx, req.(*GetAllAdminTrainsResponse))
+		return srv.(TrainServiceServer).GetAllAdminTrains(ctx, req.(*GetAllAdminTrainsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
