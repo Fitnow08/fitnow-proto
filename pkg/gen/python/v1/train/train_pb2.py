@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14v1/train/train.proto\x12\x07trainv1\x1a\x1fgoogle/protobuf/timestamp.proto\"\x17\n\x15\x41\x64\x64TrainImageResponse\"\x88\x01\n\x14\x41\x64\x64TrainImageRequest\x12\x19\n\x08train_id\x18\x01 \x01(\tR\x07trainId\x12\x1c\n\textension\x18\x02 \x01(\tR\textension\x12!\n\x0c\x63ontent_type\x18\x03 \x01(\tR\x0b\x63ontentType\x12\x14\n\x05image\x18\x04 \x01(\x0cR\x05image\"\x15\n\x13\x44\x65leteTrainResponse\"=\n\x12\x44\x65leteTrainRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"\x15\n\x13UpdateTrainResponse\"\xd6\x02\n\x12UpdateTrainRequest\x12\x19\n\x08train_id\x18\x01 \x01(\tR\x07trainId\x12\x14\n\x05title\x18\x02 \x01(\tR\x05title\x12+\n\x04type\x18\x03 \x01(\x0e\x32\x12.trainv1.TrainTypeH\x00R\x04type\x88\x01\x01\x12\x1f\n\x08\x64uration\x18\x04 \x01(\x03H\x01R\x08\x64uration\x88\x01\x01\x12\x1b\n\tis_public\x18\x05 \x01(\x08R\x08isPublic\x12\x38\n\ndifficulty\x18\x06 \x01(\x0e\x32\x13.trainv1.DifficultyH\x02R\ndifficulty\x88\x01\x01\x12\x1f\n\x08\x63\x61lories\x18\x07 \x01(\x03H\x03R\x08\x63\x61lories\x88\x01\x01\x12\x17\n\x07user_id\x18\x08 \x01(\tR\x06userIdB\x07\n\x05_typeB\x0b\n\t_durationB\r\n\x0b_difficultyB\x0b\n\t_calories\";\n\x13\x43reateTrainResponse\x12$\n\x05train\x18\x01 \x01(\x0b\x32\x0e.trainv1.TrainR\x05train\"\x96\x02\n\x12\x43reateTrainRequest\x12\x14\n\x05title\x18\x01 \x01(\tR\x05title\x12&\n\x04type\x18\x02 \x01(\x0e\x32\x12.trainv1.TrainTypeR\x04type\x12\x1a\n\x08\x64uration\x18\x03 \x01(\x03R\x08\x64uration\x12\x1b\n\tis_public\x18\x04 \x01(\x08R\x08isPublic\x12\x33\n\ndifficulty\x18\x05 \x01(\x0e\x32\x13.trainv1.DifficultyR\ndifficulty\x12\x1a\n\x08\x63\x61lories\x18\x06 \x01(\x03R\x08\x63\x61lories\x12\x1f\n\x0b\x63\x61tegory_id\x18\x07 \x01(\tR\ncategoryId\x12\x17\n\x07user_id\x18\x08 \x01(\tR\x06userId\"<\n\x14GetTrainByIdResponse\x12$\n\x05train\x18\x01 \x01(\x0b\x32\x0e.trainv1.TrainR\x05train\"%\n\x13GetTrainByIdRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\">\n\x14GetAllTrainsResponse\x12&\n\x06trains\x18\x01 \x03(\x0b\x32\x0e.trainv1.TrainR\x06trains\"t\n\x13GetAllTrainsRequest\x12\x12\n\x04page\x18\x01 \x01(\x04R\x04page\x12\x14\n\x05limit\x18\x02 \x01(\x04R\x05limit\x12\x1f\n\x0b\x63\x61tegory_id\x18\x03 \x01(\tR\ncategoryId\x12\x12\n\x04text\x18\x04 \x01(\tR\x04text\"\xa5\x03\n\x05Train\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n\x05title\x18\x02 \x01(\tR\x05title\x12\x12\n\x04type\x18\x03 \x01(\tR\x04type\x12\x1a\n\x08\x64uration\x18\x04 \x01(\x03R\x08\x64uration\x12\x1b\n\tis_public\x18\x05 \x01(\x08R\x08isPublic\x12\x1e\n\ndifficulty\x18\x06 \x01(\tR\ndifficulty\x12\x1d\n\ncreated_by\x18\x07 \x01(\tR\tcreatedBy\x12\x39\n\ncreated_at\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tcreatedAt\x12\x1f\n\x0b\x63\x61tegory_id\x18\t \x01(\tR\ncategoryId\x12\x1a\n\x08\x63\x61lories\x18\n \x01(\x03R\x08\x63\x61lories\x12\x1d\n\nimage_path\x18\x0b \x01(\tR\timagePath\x12\x39\n\nupdated_at\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x18\n\x07version\x18\r \x01(\x03R\x07version*r\n\tTrainType\x12\x1a\n\x16TRAIN_TYPE_UNSPECIFIED\x10\x00\x12\x17\n\x13TRAIN_TYPE_STRENGTH\x10\x01\x12\x15\n\x11TRAIN_TYPE_CARDIO\x10\x02\x12\x19\n\x15TRAIN_TYPE_STRETCHING\x10\x03*i\n\nDifficulty\x12\x1a\n\x16\x44IFFICULTY_UNSPECIFIED\x10\x00\x12\x13\n\x0f\x44IFFICULTY_EASY\x10\x01\x12\x15\n\x11\x44IFFICULTY_MEDIUM\x10\x02\x12\x13\n\x0f\x44IFFICULTY_HARD\x10\x03\x32\xe2\x03\n\x0cTrainService\x12M\n\x0cGetAllTrains\x12\x1c.trainv1.GetAllTrainsRequest\x1a\x1d.trainv1.GetAllTrainsResponse\"\x00\x12M\n\x0cGetTrainById\x12\x1c.trainv1.GetTrainByIdRequest\x1a\x1d.trainv1.GetTrainByIdResponse\"\x00\x12J\n\x0b\x43reateTrain\x12\x1b.trainv1.CreateTrainRequest\x1a\x1c.trainv1.CreateTrainResponse\"\x00\x12J\n\x0bUpdateTrain\x12\x1b.trainv1.UpdateTrainRequest\x1a\x1c.trainv1.UpdateTrainResponse\"\x00\x12J\n\x0b\x44\x65leteTrain\x12\x1b.trainv1.DeleteTrainRequest\x1a\x1c.trainv1.DeleteTrainResponse\"\x00\x12P\n\rAddTrainImage\x12\x1d.trainv1.AddTrainImageRequest\x1a\x1e.trainv1.AddTrainImageResponse\"\x00\x42\x8b\x01\n\x0b\x63om.trainv1B\nTrainProtoP\x01Z4github.com/Fitnow08/fitnow-proto/pkg/gen/go/v1/train\xa2\x02\x03TXX\xaa\x02\x07Trainv1\xca\x02\x07Trainv1\xe2\x02\x13Trainv1\\GPBMetadata\xea\x02\x07Trainv1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14v1/train/train.proto\x12\x07trainv1\x1a\x1fgoogle/protobuf/timestamp.proto\"C\n\x19GetAllAdminTrainsResponse\x12&\n\x06trains\x18\x01 \x03(\x0b\x32\x0e.trainv1.TrainR\x06trains\"y\n\x18GetAllAdminTrainsRequest\x12\x12\n\x04page\x18\x01 \x01(\x04R\x04page\x12\x14\n\x05limit\x18\x02 \x01(\x04R\x05limit\x12\x1f\n\x0b\x63\x61tegory_id\x18\x03 \x01(\tR\ncategoryId\x12\x12\n\x04text\x18\x04 \x01(\tR\x04text\"\x17\n\x15\x41\x64\x64TrainImageResponse\"\x88\x01\n\x14\x41\x64\x64TrainImageRequest\x12\x19\n\x08train_id\x18\x01 \x01(\tR\x07trainId\x12\x1c\n\textension\x18\x02 \x01(\tR\textension\x12!\n\x0c\x63ontent_type\x18\x03 \x01(\tR\x0b\x63ontentType\x12\x14\n\x05image\x18\x04 \x01(\x0cR\x05image\"\x15\n\x13\x44\x65leteTrainResponse\"=\n\x12\x44\x65leteTrainRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"\x15\n\x13UpdateTrainResponse\"\xd6\x02\n\x12UpdateTrainRequest\x12\x19\n\x08train_id\x18\x01 \x01(\tR\x07trainId\x12\x14\n\x05title\x18\x02 \x01(\tR\x05title\x12+\n\x04type\x18\x03 \x01(\x0e\x32\x12.trainv1.TrainTypeH\x00R\x04type\x88\x01\x01\x12\x1f\n\x08\x64uration\x18\x04 \x01(\x03H\x01R\x08\x64uration\x88\x01\x01\x12\x1b\n\tis_public\x18\x05 \x01(\x08R\x08isPublic\x12\x38\n\ndifficulty\x18\x06 \x01(\x0e\x32\x13.trainv1.DifficultyH\x02R\ndifficulty\x88\x01\x01\x12\x1f\n\x08\x63\x61lories\x18\x07 \x01(\x03H\x03R\x08\x63\x61lories\x88\x01\x01\x12\x17\n\x07user_id\x18\x08 \x01(\tR\x06userIdB\x07\n\x05_typeB\x0b\n\t_durationB\r\n\x0b_difficultyB\x0b\n\t_calories\";\n\x13\x43reateTrainResponse\x12$\n\x05train\x18\x01 \x01(\x0b\x32\x0e.trainv1.TrainR\x05train\"\x96\x02\n\x12\x43reateTrainRequest\x12\x14\n\x05title\x18\x01 \x01(\tR\x05title\x12&\n\x04type\x18\x02 \x01(\x0e\x32\x12.trainv1.TrainTypeR\x04type\x12\x1a\n\x08\x64uration\x18\x03 \x01(\x03R\x08\x64uration\x12\x1b\n\tis_public\x18\x04 \x01(\x08R\x08isPublic\x12\x33\n\ndifficulty\x18\x05 \x01(\x0e\x32\x13.trainv1.DifficultyR\ndifficulty\x12\x1a\n\x08\x63\x61lories\x18\x06 \x01(\x03R\x08\x63\x61lories\x12\x1f\n\x0b\x63\x61tegory_id\x18\x07 \x01(\tR\ncategoryId\x12\x17\n\x07user_id\x18\x08 \x01(\tR\x06userId\"<\n\x14GetTrainByIdResponse\x12$\n\x05train\x18\x01 \x01(\x0b\x32\x0e.trainv1.TrainR\x05train\"%\n\x13GetTrainByIdRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"x\n\x13GetAllTrainsRequest\x12\x14\n\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n\x06\x63ursor\x18\x02 \x01(\tR\x06\x63ursor\x12\x1f\n\x0b\x63\x61tegory_id\x18\x03 \x01(\tR\ncategoryId\x12\x12\n\x04text\x18\x04 \x01(\tR\x04text\"z\n\x14GetAllTrainsResponse\x12&\n\x06trains\x18\x01 \x03(\x0b\x32\x0e.trainv1.TrainR\x06trains\x12\x1f\n\x0bnext_cursor\x18\x02 \x01(\tR\nnextCursor\x12\x19\n\x08has_more\x18\x03 \x01(\x08R\x07hasMore\"\xa5\x03\n\x05Train\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n\x05title\x18\x02 \x01(\tR\x05title\x12\x12\n\x04type\x18\x03 \x01(\tR\x04type\x12\x1a\n\x08\x64uration\x18\x04 \x01(\x03R\x08\x64uration\x12\x1b\n\tis_public\x18\x05 \x01(\x08R\x08isPublic\x12\x1e\n\ndifficulty\x18\x06 \x01(\tR\ndifficulty\x12\x1d\n\ncreated_by\x18\x07 \x01(\tR\tcreatedBy\x12\x39\n\ncreated_at\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tcreatedAt\x12\x1f\n\x0b\x63\x61tegory_id\x18\t \x01(\tR\ncategoryId\x12\x1a\n\x08\x63\x61lories\x18\n \x01(\x03R\x08\x63\x61lories\x12\x1d\n\nimage_path\x18\x0b \x01(\tR\timagePath\x12\x39\n\nupdated_at\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x18\n\x07version\x18\r \x01(\x03R\x07version*r\n\tTrainType\x12\x1a\n\x16TRAIN_TYPE_UNSPECIFIED\x10\x00\x12\x17\n\x13TRAIN_TYPE_STRENGTH\x10\x01\x12\x15\n\x11TRAIN_TYPE_CARDIO\x10\x02\x12\x19\n\x15TRAIN_TYPE_STRETCHING\x10\x03*i\n\nDifficulty\x12\x1a\n\x16\x44IFFICULTY_UNSPECIFIED\x10\x00\x12\x13\n\x0f\x44IFFICULTY_EASY\x10\x01\x12\x15\n\x11\x44IFFICULTY_MEDIUM\x10\x02\x12\x13\n\x0f\x44IFFICULTY_HARD\x10\x03\x32\xc0\x04\n\x0cTrainService\x12M\n\x0cGetAllTrains\x12\x1c.trainv1.GetAllTrainsRequest\x1a\x1d.trainv1.GetAllTrainsResponse\"\x00\x12M\n\x0cGetTrainById\x12\x1c.trainv1.GetTrainByIdRequest\x1a\x1d.trainv1.GetTrainByIdResponse\"\x00\x12J\n\x0b\x43reateTrain\x12\x1b.trainv1.CreateTrainRequest\x1a\x1c.trainv1.CreateTrainResponse\"\x00\x12J\n\x0bUpdateTrain\x12\x1b.trainv1.UpdateTrainRequest\x1a\x1c.trainv1.UpdateTrainResponse\"\x00\x12J\n\x0b\x44\x65leteTrain\x12\x1b.trainv1.DeleteTrainRequest\x1a\x1c.trainv1.DeleteTrainResponse\"\x00\x12P\n\rAddTrainImage\x12\x1d.trainv1.AddTrainImageRequest\x1a\x1e.trainv1.AddTrainImageResponse\"\x00\x12\\\n\x11GetAllAdminTrains\x12\".trainv1.GetAllAdminTrainsResponse\x1a!.trainv1.GetAllAdminTrainsRequest\"\x00\x42\x8b\x01\n\x0b\x63om.trainv1B\nTrainProtoP\x01Z4github.com/Fitnow08/fitnow-proto/pkg/gen/go/v1/train\xa2\x02\x03TXX\xaa\x02\x07Trainv1\xca\x02\x07Trainv1\xe2\x02\x13Trainv1\\GPBMetadata\xea\x02\x07Trainv1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -23,36 +23,40 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'v1.train.train_pb2', _globa
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\013com.trainv1B\nTrainProtoP\001Z4github.com/Fitnow08/fitnow-proto/pkg/gen/go/v1/train\242\002\003TXX\252\002\007Trainv1\312\002\007Trainv1\342\002\023Trainv1\\GPBMetadata\352\002\007Trainv1'
-  _globals['_TRAINTYPE']._serialized_start=1733
-  _globals['_TRAINTYPE']._serialized_end=1847
-  _globals['_DIFFICULTY']._serialized_start=1849
-  _globals['_DIFFICULTY']._serialized_end=1954
-  _globals['_ADDTRAINIMAGERESPONSE']._serialized_start=66
-  _globals['_ADDTRAINIMAGERESPONSE']._serialized_end=89
-  _globals['_ADDTRAINIMAGEREQUEST']._serialized_start=92
-  _globals['_ADDTRAINIMAGEREQUEST']._serialized_end=228
-  _globals['_DELETETRAINRESPONSE']._serialized_start=230
-  _globals['_DELETETRAINRESPONSE']._serialized_end=251
-  _globals['_DELETETRAINREQUEST']._serialized_start=253
-  _globals['_DELETETRAINREQUEST']._serialized_end=314
-  _globals['_UPDATETRAINRESPONSE']._serialized_start=316
-  _globals['_UPDATETRAINRESPONSE']._serialized_end=337
-  _globals['_UPDATETRAINREQUEST']._serialized_start=340
-  _globals['_UPDATETRAINREQUEST']._serialized_end=682
-  _globals['_CREATETRAINRESPONSE']._serialized_start=684
-  _globals['_CREATETRAINRESPONSE']._serialized_end=743
-  _globals['_CREATETRAINREQUEST']._serialized_start=746
-  _globals['_CREATETRAINREQUEST']._serialized_end=1024
-  _globals['_GETTRAINBYIDRESPONSE']._serialized_start=1026
-  _globals['_GETTRAINBYIDRESPONSE']._serialized_end=1086
-  _globals['_GETTRAINBYIDREQUEST']._serialized_start=1088
-  _globals['_GETTRAINBYIDREQUEST']._serialized_end=1125
-  _globals['_GETALLTRAINSRESPONSE']._serialized_start=1127
-  _globals['_GETALLTRAINSRESPONSE']._serialized_end=1189
-  _globals['_GETALLTRAINSREQUEST']._serialized_start=1191
-  _globals['_GETALLTRAINSREQUEST']._serialized_end=1307
-  _globals['_TRAIN']._serialized_start=1310
-  _globals['_TRAIN']._serialized_end=1731
-  _globals['_TRAINSERVICE']._serialized_start=1957
-  _globals['_TRAINSERVICE']._serialized_end=2439
+  _globals['_TRAINTYPE']._serialized_start=1989
+  _globals['_TRAINTYPE']._serialized_end=2103
+  _globals['_DIFFICULTY']._serialized_start=2105
+  _globals['_DIFFICULTY']._serialized_end=2210
+  _globals['_GETALLADMINTRAINSRESPONSE']._serialized_start=66
+  _globals['_GETALLADMINTRAINSRESPONSE']._serialized_end=133
+  _globals['_GETALLADMINTRAINSREQUEST']._serialized_start=135
+  _globals['_GETALLADMINTRAINSREQUEST']._serialized_end=256
+  _globals['_ADDTRAINIMAGERESPONSE']._serialized_start=258
+  _globals['_ADDTRAINIMAGERESPONSE']._serialized_end=281
+  _globals['_ADDTRAINIMAGEREQUEST']._serialized_start=284
+  _globals['_ADDTRAINIMAGEREQUEST']._serialized_end=420
+  _globals['_DELETETRAINRESPONSE']._serialized_start=422
+  _globals['_DELETETRAINRESPONSE']._serialized_end=443
+  _globals['_DELETETRAINREQUEST']._serialized_start=445
+  _globals['_DELETETRAINREQUEST']._serialized_end=506
+  _globals['_UPDATETRAINRESPONSE']._serialized_start=508
+  _globals['_UPDATETRAINRESPONSE']._serialized_end=529
+  _globals['_UPDATETRAINREQUEST']._serialized_start=532
+  _globals['_UPDATETRAINREQUEST']._serialized_end=874
+  _globals['_CREATETRAINRESPONSE']._serialized_start=876
+  _globals['_CREATETRAINRESPONSE']._serialized_end=935
+  _globals['_CREATETRAINREQUEST']._serialized_start=938
+  _globals['_CREATETRAINREQUEST']._serialized_end=1216
+  _globals['_GETTRAINBYIDRESPONSE']._serialized_start=1218
+  _globals['_GETTRAINBYIDRESPONSE']._serialized_end=1278
+  _globals['_GETTRAINBYIDREQUEST']._serialized_start=1280
+  _globals['_GETTRAINBYIDREQUEST']._serialized_end=1317
+  _globals['_GETALLTRAINSREQUEST']._serialized_start=1319
+  _globals['_GETALLTRAINSREQUEST']._serialized_end=1439
+  _globals['_GETALLTRAINSRESPONSE']._serialized_start=1441
+  _globals['_GETALLTRAINSRESPONSE']._serialized_end=1563
+  _globals['_TRAIN']._serialized_start=1566
+  _globals['_TRAIN']._serialized_end=1987
+  _globals['_TRAINSERVICE']._serialized_start=2213
+  _globals['_TRAINSERVICE']._serialized_end=2789
 # @@protoc_insertion_point(module_scope)

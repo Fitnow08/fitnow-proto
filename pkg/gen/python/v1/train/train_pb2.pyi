@@ -29,6 +29,24 @@ DIFFICULTY_EASY: Difficulty
 DIFFICULTY_MEDIUM: Difficulty
 DIFFICULTY_HARD: Difficulty
 
+class GetAllAdminTrainsResponse(_message.Message):
+    __slots__ = ("trains",)
+    TRAINS_FIELD_NUMBER: _ClassVar[int]
+    trains: _containers.RepeatedCompositeFieldContainer[Train]
+    def __init__(self, trains: _Optional[_Iterable[_Union[Train, _Mapping]]] = ...) -> None: ...
+
+class GetAllAdminTrainsRequest(_message.Message):
+    __slots__ = ("page", "limit", "category_id", "text")
+    PAGE_FIELD_NUMBER: _ClassVar[int]
+    LIMIT_FIELD_NUMBER: _ClassVar[int]
+    CATEGORY_ID_FIELD_NUMBER: _ClassVar[int]
+    TEXT_FIELD_NUMBER: _ClassVar[int]
+    page: int
+    limit: int
+    category_id: str
+    text: str
+    def __init__(self, page: _Optional[int] = ..., limit: _Optional[int] = ..., category_id: _Optional[str] = ..., text: _Optional[str] = ...) -> None: ...
+
 class AddTrainImageResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
@@ -119,23 +137,27 @@ class GetTrainByIdRequest(_message.Message):
     id: str
     def __init__(self, id: _Optional[str] = ...) -> None: ...
 
-class GetAllTrainsResponse(_message.Message):
-    __slots__ = ("trains",)
-    TRAINS_FIELD_NUMBER: _ClassVar[int]
-    trains: _containers.RepeatedCompositeFieldContainer[Train]
-    def __init__(self, trains: _Optional[_Iterable[_Union[Train, _Mapping]]] = ...) -> None: ...
-
 class GetAllTrainsRequest(_message.Message):
-    __slots__ = ("page", "limit", "category_id", "text")
-    PAGE_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("limit", "cursor", "category_id", "text")
     LIMIT_FIELD_NUMBER: _ClassVar[int]
+    CURSOR_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_ID_FIELD_NUMBER: _ClassVar[int]
     TEXT_FIELD_NUMBER: _ClassVar[int]
-    page: int
     limit: int
+    cursor: str
     category_id: str
     text: str
-    def __init__(self, page: _Optional[int] = ..., limit: _Optional[int] = ..., category_id: _Optional[str] = ..., text: _Optional[str] = ...) -> None: ...
+    def __init__(self, limit: _Optional[int] = ..., cursor: _Optional[str] = ..., category_id: _Optional[str] = ..., text: _Optional[str] = ...) -> None: ...
+
+class GetAllTrainsResponse(_message.Message):
+    __slots__ = ("trains", "next_cursor", "has_more")
+    TRAINS_FIELD_NUMBER: _ClassVar[int]
+    NEXT_CURSOR_FIELD_NUMBER: _ClassVar[int]
+    HAS_MORE_FIELD_NUMBER: _ClassVar[int]
+    trains: _containers.RepeatedCompositeFieldContainer[Train]
+    next_cursor: str
+    has_more: bool
+    def __init__(self, trains: _Optional[_Iterable[_Union[Train, _Mapping]]] = ..., next_cursor: _Optional[str] = ..., has_more: bool = ...) -> None: ...
 
 class Train(_message.Message):
     __slots__ = ("id", "title", "type", "duration", "is_public", "difficulty", "created_by", "created_at", "category_id", "calories", "image_path", "updated_at", "version")

@@ -474,6 +474,25 @@
       ],
       "default": "DIFFICULTY_UNSPECIFIED"
     },
+    "trainv1GetAllAdminTrainsRequest": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "limit": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "categoryId": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
     "trainv1GetAllTrainsResponse": {
       "type": "object",
       "properties": {
@@ -483,6 +502,12 @@
             "type": "object",
             "$ref": "#/definitions/trainv1Train"
           }
+        },
+        "nextCursor": {
+          "type": "string"
+        },
+        "hasMore": {
+          "type": "boolean"
         }
       }
     },

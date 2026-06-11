@@ -11,6 +11,16 @@ service TrainService {
   rpc UpdateTrain(UpdateTrainRequest) returns(UpdateTrainResponse) {}
   rpc DeleteTrain(DeleteTrainRequest) returns(DeleteTrainResponse) {}
   rpc AddTrainImage(AddTrainImageRequest) returns (AddTrainImageResponse){}
+  rpc GetAllAdminTrains(GetAllAdminTrainsResponse) returns (GetAllAdminTrainsRequest){}
+}
+message GetAllAdminTrainsResponse {
+  repeated Train trains = 1;
+}
+message GetAllAdminTrainsRequest {
+  uint64 page = 1;
+  uint64 limit = 2;
+  string category_id = 3;
+  string text = 4;
 }
 message AddTrainImageResponse{}
 message AddTrainImageRequest{
@@ -58,14 +68,17 @@ message GetTrainByIdRequest{
   string id = 1;
 }
 
-message GetAllTrainsResponse {
-  repeated Train trains = 1;
-}
+
 message GetAllTrainsRequest {
-  uint64 page = 1;
-  uint64 limit = 2;
+  int32  limit       = 1;
+  string cursor      = 2;
   string category_id = 3;
-  string text = 4;
+  string text        = 4;
+}
+message GetAllTrainsResponse {
+  repeated Train trains      = 1;
+  string         next_cursor = 2;
+  bool           has_more    = 3;
 }
 
 message Train {

@@ -126,6 +126,118 @@ func (Difficulty) EnumDescriptor() ([]byte, []int) {
 	return file_v1_train_train_proto_rawDescGZIP(), []int{1}
 }
 
+type GetAllAdminTrainsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Trains        []*Train               `protobuf:"bytes,1,rep,name=trains,proto3" json:"trains,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAllAdminTrainsResponse) Reset() {
+	*x = GetAllAdminTrainsResponse{}
+	mi := &file_v1_train_train_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAllAdminTrainsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAllAdminTrainsResponse) ProtoMessage() {}
+
+func (x *GetAllAdminTrainsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_v1_train_train_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAllAdminTrainsResponse.ProtoReflect.Descriptor instead.
+func (*GetAllAdminTrainsResponse) Descriptor() ([]byte, []int) {
+	return file_v1_train_train_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetAllAdminTrainsResponse) GetTrains() []*Train {
+	if x != nil {
+		return x.Trains
+	}
+	return nil
+}
+
+type GetAllAdminTrainsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Page          uint64                 `protobuf:"varint,1,opt,name=page,proto3" json:"page,omitempty"`
+	Limit         uint64                 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	CategoryId    string                 `protobuf:"bytes,3,opt,name=category_id,json=categoryId,proto3" json:"category_id,omitempty"`
+	Text          string                 `protobuf:"bytes,4,opt,name=text,proto3" json:"text,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAllAdminTrainsRequest) Reset() {
+	*x = GetAllAdminTrainsRequest{}
+	mi := &file_v1_train_train_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAllAdminTrainsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAllAdminTrainsRequest) ProtoMessage() {}
+
+func (x *GetAllAdminTrainsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_v1_train_train_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAllAdminTrainsRequest.ProtoReflect.Descriptor instead.
+func (*GetAllAdminTrainsRequest) Descriptor() ([]byte, []int) {
+	return file_v1_train_train_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetAllAdminTrainsRequest) GetPage() uint64 {
+	if x != nil {
+		return x.Page
+	}
+	return 0
+}
+
+func (x *GetAllAdminTrainsRequest) GetLimit() uint64 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+func (x *GetAllAdminTrainsRequest) GetCategoryId() string {
+	if x != nil {
+		return x.CategoryId
+	}
+	return ""
+}
+
+func (x *GetAllAdminTrainsRequest) GetText() string {
+	if x != nil {
+		return x.Text
+	}
+	return ""
+}
+
 type AddTrainImageResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -134,7 +246,7 @@ type AddTrainImageResponse struct {
 
 func (x *AddTrainImageResponse) Reset() {
 	*x = AddTrainImageResponse{}
-	mi := &file_v1_train_train_proto_msgTypes[0]
+	mi := &file_v1_train_train_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -146,7 +258,7 @@ func (x *AddTrainImageResponse) String() string {
 func (*AddTrainImageResponse) ProtoMessage() {}
 
 func (x *AddTrainImageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_train_train_proto_msgTypes[0]
+	mi := &file_v1_train_train_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -159,7 +271,7 @@ func (x *AddTrainImageResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddTrainImageResponse.ProtoReflect.Descriptor instead.
 func (*AddTrainImageResponse) Descriptor() ([]byte, []int) {
-	return file_v1_train_train_proto_rawDescGZIP(), []int{0}
+	return file_v1_train_train_proto_rawDescGZIP(), []int{2}
 }
 
 type AddTrainImageRequest struct {
@@ -174,7 +286,7 @@ type AddTrainImageRequest struct {
 
 func (x *AddTrainImageRequest) Reset() {
 	*x = AddTrainImageRequest{}
-	mi := &file_v1_train_train_proto_msgTypes[1]
+	mi := &file_v1_train_train_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -186,7 +298,7 @@ func (x *AddTrainImageRequest) String() string {
 func (*AddTrainImageRequest) ProtoMessage() {}
 
 func (x *AddTrainImageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_train_train_proto_msgTypes[1]
+	mi := &file_v1_train_train_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -199,7 +311,7 @@ func (x *AddTrainImageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddTrainImageRequest.ProtoReflect.Descriptor instead.
 func (*AddTrainImageRequest) Descriptor() ([]byte, []int) {
-	return file_v1_train_train_proto_rawDescGZIP(), []int{1}
+	return file_v1_train_train_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *AddTrainImageRequest) GetTrainId() string {
@@ -238,7 +350,7 @@ type DeleteTrainResponse struct {
 
 func (x *DeleteTrainResponse) Reset() {
 	*x = DeleteTrainResponse{}
-	mi := &file_v1_train_train_proto_msgTypes[2]
+	mi := &file_v1_train_train_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -250,7 +362,7 @@ func (x *DeleteTrainResponse) String() string {
 func (*DeleteTrainResponse) ProtoMessage() {}
 
 func (x *DeleteTrainResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_train_train_proto_msgTypes[2]
+	mi := &file_v1_train_train_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -263,7 +375,7 @@ func (x *DeleteTrainResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteTrainResponse.ProtoReflect.Descriptor instead.
 func (*DeleteTrainResponse) Descriptor() ([]byte, []int) {
-	return file_v1_train_train_proto_rawDescGZIP(), []int{2}
+	return file_v1_train_train_proto_rawDescGZIP(), []int{4}
 }
 
 type DeleteTrainRequest struct {
@@ -276,7 +388,7 @@ type DeleteTrainRequest struct {
 
 func (x *DeleteTrainRequest) Reset() {
 	*x = DeleteTrainRequest{}
-	mi := &file_v1_train_train_proto_msgTypes[3]
+	mi := &file_v1_train_train_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -288,7 +400,7 @@ func (x *DeleteTrainRequest) String() string {
 func (*DeleteTrainRequest) ProtoMessage() {}
 
 func (x *DeleteTrainRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_train_train_proto_msgTypes[3]
+	mi := &file_v1_train_train_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -301,7 +413,7 @@ func (x *DeleteTrainRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteTrainRequest.ProtoReflect.Descriptor instead.
 func (*DeleteTrainRequest) Descriptor() ([]byte, []int) {
-	return file_v1_train_train_proto_rawDescGZIP(), []int{3}
+	return file_v1_train_train_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *DeleteTrainRequest) GetId() string {
@@ -326,7 +438,7 @@ type UpdateTrainResponse struct {
 
 func (x *UpdateTrainResponse) Reset() {
 	*x = UpdateTrainResponse{}
-	mi := &file_v1_train_train_proto_msgTypes[4]
+	mi := &file_v1_train_train_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -338,7 +450,7 @@ func (x *UpdateTrainResponse) String() string {
 func (*UpdateTrainResponse) ProtoMessage() {}
 
 func (x *UpdateTrainResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_train_train_proto_msgTypes[4]
+	mi := &file_v1_train_train_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -351,7 +463,7 @@ func (x *UpdateTrainResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateTrainResponse.ProtoReflect.Descriptor instead.
 func (*UpdateTrainResponse) Descriptor() ([]byte, []int) {
-	return file_v1_train_train_proto_rawDescGZIP(), []int{4}
+	return file_v1_train_train_proto_rawDescGZIP(), []int{6}
 }
 
 type UpdateTrainRequest struct {
@@ -370,7 +482,7 @@ type UpdateTrainRequest struct {
 
 func (x *UpdateTrainRequest) Reset() {
 	*x = UpdateTrainRequest{}
-	mi := &file_v1_train_train_proto_msgTypes[5]
+	mi := &file_v1_train_train_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -382,7 +494,7 @@ func (x *UpdateTrainRequest) String() string {
 func (*UpdateTrainRequest) ProtoMessage() {}
 
 func (x *UpdateTrainRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_train_train_proto_msgTypes[5]
+	mi := &file_v1_train_train_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -395,7 +507,7 @@ func (x *UpdateTrainRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateTrainRequest.ProtoReflect.Descriptor instead.
 func (*UpdateTrainRequest) Descriptor() ([]byte, []int) {
-	return file_v1_train_train_proto_rawDescGZIP(), []int{5}
+	return file_v1_train_train_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *UpdateTrainRequest) GetTrainId() string {
@@ -463,7 +575,7 @@ type CreateTrainResponse struct {
 
 func (x *CreateTrainResponse) Reset() {
 	*x = CreateTrainResponse{}
-	mi := &file_v1_train_train_proto_msgTypes[6]
+	mi := &file_v1_train_train_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -475,7 +587,7 @@ func (x *CreateTrainResponse) String() string {
 func (*CreateTrainResponse) ProtoMessage() {}
 
 func (x *CreateTrainResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_train_train_proto_msgTypes[6]
+	mi := &file_v1_train_train_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -488,7 +600,7 @@ func (x *CreateTrainResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateTrainResponse.ProtoReflect.Descriptor instead.
 func (*CreateTrainResponse) Descriptor() ([]byte, []int) {
-	return file_v1_train_train_proto_rawDescGZIP(), []int{6}
+	return file_v1_train_train_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CreateTrainResponse) GetTrain() *Train {
@@ -514,7 +626,7 @@ type CreateTrainRequest struct {
 
 func (x *CreateTrainRequest) Reset() {
 	*x = CreateTrainRequest{}
-	mi := &file_v1_train_train_proto_msgTypes[7]
+	mi := &file_v1_train_train_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -526,7 +638,7 @@ func (x *CreateTrainRequest) String() string {
 func (*CreateTrainRequest) ProtoMessage() {}
 
 func (x *CreateTrainRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_train_train_proto_msgTypes[7]
+	mi := &file_v1_train_train_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -539,7 +651,7 @@ func (x *CreateTrainRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateTrainRequest.ProtoReflect.Descriptor instead.
 func (*CreateTrainRequest) Descriptor() ([]byte, []int) {
-	return file_v1_train_train_proto_rawDescGZIP(), []int{7}
+	return file_v1_train_train_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CreateTrainRequest) GetTitle() string {
@@ -607,7 +719,7 @@ type GetTrainByIdResponse struct {
 
 func (x *GetTrainByIdResponse) Reset() {
 	*x = GetTrainByIdResponse{}
-	mi := &file_v1_train_train_proto_msgTypes[8]
+	mi := &file_v1_train_train_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -619,7 +731,7 @@ func (x *GetTrainByIdResponse) String() string {
 func (*GetTrainByIdResponse) ProtoMessage() {}
 
 func (x *GetTrainByIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_train_train_proto_msgTypes[8]
+	mi := &file_v1_train_train_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -632,7 +744,7 @@ func (x *GetTrainByIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTrainByIdResponse.ProtoReflect.Descriptor instead.
 func (*GetTrainByIdResponse) Descriptor() ([]byte, []int) {
-	return file_v1_train_train_proto_rawDescGZIP(), []int{8}
+	return file_v1_train_train_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetTrainByIdResponse) GetTrain() *Train {
@@ -651,7 +763,7 @@ type GetTrainByIdRequest struct {
 
 func (x *GetTrainByIdRequest) Reset() {
 	*x = GetTrainByIdRequest{}
-	mi := &file_v1_train_train_proto_msgTypes[9]
+	mi := &file_v1_train_train_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -663,7 +775,7 @@ func (x *GetTrainByIdRequest) String() string {
 func (*GetTrainByIdRequest) ProtoMessage() {}
 
 func (x *GetTrainByIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_train_train_proto_msgTypes[9]
+	mi := &file_v1_train_train_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -676,7 +788,7 @@ func (x *GetTrainByIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTrainByIdRequest.ProtoReflect.Descriptor instead.
 func (*GetTrainByIdRequest) Descriptor() ([]byte, []int) {
-	return file_v1_train_train_proto_rawDescGZIP(), []int{9}
+	return file_v1_train_train_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetTrainByIdRequest) GetId() string {
@@ -686,54 +798,10 @@ func (x *GetTrainByIdRequest) GetId() string {
 	return ""
 }
 
-type GetAllTrainsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Trains        []*Train               `protobuf:"bytes,1,rep,name=trains,proto3" json:"trains,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAllTrainsResponse) Reset() {
-	*x = GetAllTrainsResponse{}
-	mi := &file_v1_train_train_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAllTrainsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAllTrainsResponse) ProtoMessage() {}
-
-func (x *GetAllTrainsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_train_train_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAllTrainsResponse.ProtoReflect.Descriptor instead.
-func (*GetAllTrainsResponse) Descriptor() ([]byte, []int) {
-	return file_v1_train_train_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *GetAllTrainsResponse) GetTrains() []*Train {
-	if x != nil {
-		return x.Trains
-	}
-	return nil
-}
-
 type GetAllTrainsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Page          uint64                 `protobuf:"varint,1,opt,name=page,proto3" json:"page,omitempty"`
-	Limit         uint64                 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	Limit         int32                  `protobuf:"varint,1,opt,name=limit,proto3" json:"limit,omitempty"`
+	Cursor        string                 `protobuf:"bytes,2,opt,name=cursor,proto3" json:"cursor,omitempty"`
 	CategoryId    string                 `protobuf:"bytes,3,opt,name=category_id,json=categoryId,proto3" json:"category_id,omitempty"`
 	Text          string                 `protobuf:"bytes,4,opt,name=text,proto3" json:"text,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -742,7 +810,7 @@ type GetAllTrainsRequest struct {
 
 func (x *GetAllTrainsRequest) Reset() {
 	*x = GetAllTrainsRequest{}
-	mi := &file_v1_train_train_proto_msgTypes[11]
+	mi := &file_v1_train_train_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -754,7 +822,7 @@ func (x *GetAllTrainsRequest) String() string {
 func (*GetAllTrainsRequest) ProtoMessage() {}
 
 func (x *GetAllTrainsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_train_train_proto_msgTypes[11]
+	mi := &file_v1_train_train_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -767,21 +835,21 @@ func (x *GetAllTrainsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllTrainsRequest.ProtoReflect.Descriptor instead.
 func (*GetAllTrainsRequest) Descriptor() ([]byte, []int) {
-	return file_v1_train_train_proto_rawDescGZIP(), []int{11}
+	return file_v1_train_train_proto_rawDescGZIP(), []int{12}
 }
 
-func (x *GetAllTrainsRequest) GetPage() uint64 {
-	if x != nil {
-		return x.Page
-	}
-	return 0
-}
-
-func (x *GetAllTrainsRequest) GetLimit() uint64 {
+func (x *GetAllTrainsRequest) GetLimit() int32 {
 	if x != nil {
 		return x.Limit
 	}
 	return 0
+}
+
+func (x *GetAllTrainsRequest) GetCursor() string {
+	if x != nil {
+		return x.Cursor
+	}
+	return ""
 }
 
 func (x *GetAllTrainsRequest) GetCategoryId() string {
@@ -796,6 +864,66 @@ func (x *GetAllTrainsRequest) GetText() string {
 		return x.Text
 	}
 	return ""
+}
+
+type GetAllTrainsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Trains        []*Train               `protobuf:"bytes,1,rep,name=trains,proto3" json:"trains,omitempty"`
+	NextCursor    string                 `protobuf:"bytes,2,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
+	HasMore       bool                   `protobuf:"varint,3,opt,name=has_more,json=hasMore,proto3" json:"has_more,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAllTrainsResponse) Reset() {
+	*x = GetAllTrainsResponse{}
+	mi := &file_v1_train_train_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAllTrainsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAllTrainsResponse) ProtoMessage() {}
+
+func (x *GetAllTrainsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_v1_train_train_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAllTrainsResponse.ProtoReflect.Descriptor instead.
+func (*GetAllTrainsResponse) Descriptor() ([]byte, []int) {
+	return file_v1_train_train_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetAllTrainsResponse) GetTrains() []*Train {
+	if x != nil {
+		return x.Trains
+	}
+	return nil
+}
+
+func (x *GetAllTrainsResponse) GetNextCursor() string {
+	if x != nil {
+		return x.NextCursor
+	}
+	return ""
+}
+
+func (x *GetAllTrainsResponse) GetHasMore() bool {
+	if x != nil {
+		return x.HasMore
+	}
+	return false
 }
 
 type Train struct {
@@ -819,7 +947,7 @@ type Train struct {
 
 func (x *Train) Reset() {
 	*x = Train{}
-	mi := &file_v1_train_train_proto_msgTypes[12]
+	mi := &file_v1_train_train_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -831,7 +959,7 @@ func (x *Train) String() string {
 func (*Train) ProtoMessage() {}
 
 func (x *Train) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_train_train_proto_msgTypes[12]
+	mi := &file_v1_train_train_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -844,7 +972,7 @@ func (x *Train) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Train.ProtoReflect.Descriptor instead.
 func (*Train) Descriptor() ([]byte, []int) {
-	return file_v1_train_train_proto_rawDescGZIP(), []int{12}
+	return file_v1_train_train_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *Train) GetId() string {
@@ -945,6 +1073,18 @@ var file_v1_train_train_proto_rawDesc = string([]byte{
 	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x07, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x76, 0x31, 0x1a,
 	0x1f, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66,
 	0x2f, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x22, 0x43, 0x0a, 0x19, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x54,
+	0x72, 0x61, 0x69, 0x6e, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x26, 0x0a,
+	0x06, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0e, 0x2e,
+	0x74, 0x72, 0x61, 0x69, 0x6e, 0x76, 0x31, 0x2e, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x52, 0x06, 0x74,
+	0x72, 0x61, 0x69, 0x6e, 0x73, 0x22, 0x79, 0x0a, 0x18, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x41,
+	0x64, 0x6d, 0x69, 0x6e, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x12, 0x0a, 0x04, 0x70, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52,
+	0x04, 0x70, 0x61, 0x67, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x04, 0x52, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x12, 0x1f, 0x0a, 0x0b, 0x63,
+	0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x0a, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x64, 0x12, 0x12, 0x0a, 0x04,
+	0x74, 0x65, 0x78, 0x74, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x74, 0x65, 0x78, 0x74,
 	0x22, 0x17, 0x0a, 0x15, 0x41, 0x64, 0x64, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x49, 0x6d, 0x61, 0x67,
 	0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x88, 0x01, 0x0a, 0x14, 0x41, 0x64,
 	0x64, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x49, 0x6d, 0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
@@ -1011,18 +1151,22 @@ var file_v1_train_train_proto_rawDesc = string([]byte{
 	0x31, 0x2e, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x52, 0x05, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x22, 0x25,
 	0x0a, 0x13, 0x47, 0x65, 0x74, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65,
 	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x3e, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x54,
-	0x72, 0x61, 0x69, 0x6e, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x26, 0x0a,
-	0x06, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0e, 0x2e,
-	0x74, 0x72, 0x61, 0x69, 0x6e, 0x76, 0x31, 0x2e, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x52, 0x06, 0x74,
-	0x72, 0x61, 0x69, 0x6e, 0x73, 0x22, 0x74, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x54,
-	0x72, 0x61, 0x69, 0x6e, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04,
-	0x70, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x04, 0x70, 0x61, 0x67, 0x65,
-	0x12, 0x14, 0x0a, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x04, 0x52,
-	0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x12, 0x1f, 0x0a, 0x0b, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f,
-	0x72, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x63, 0x61, 0x74,
-	0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x74, 0x65, 0x78, 0x74, 0x18,
-	0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x74, 0x65, 0x78, 0x74, 0x22, 0xa5, 0x03, 0x0a, 0x05,
+	0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x78, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x54,
+	0x72, 0x61, 0x69, 0x6e, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05,
+	0x6c, 0x69, 0x6d, 0x69, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x05, 0x6c, 0x69, 0x6d,
+	0x69, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x63, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x06, 0x63, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x12, 0x1f, 0x0a, 0x0b, 0x63, 0x61,
+	0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x0a, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x74,
+	0x65, 0x78, 0x74, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x74, 0x65, 0x78, 0x74, 0x22,
+	0x7a, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x73, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x26, 0x0a, 0x06, 0x74, 0x72, 0x61, 0x69, 0x6e,
+	0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x76,
+	0x31, 0x2e, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x52, 0x06, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x73, 0x12,
+	0x1f, 0x0a, 0x0b, 0x6e, 0x65, 0x78, 0x74, 0x5f, 0x63, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x6e, 0x65, 0x78, 0x74, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72,
+	0x12, 0x19, 0x0a, 0x08, 0x68, 0x61, 0x73, 0x5f, 0x6d, 0x6f, 0x72, 0x65, 0x18, 0x03, 0x20, 0x01,
+	0x28, 0x08, 0x52, 0x07, 0x68, 0x61, 0x73, 0x4d, 0x6f, 0x72, 0x65, 0x22, 0xa5, 0x03, 0x0a, 0x05,
 	0x54, 0x72, 0x61, 0x69, 0x6e, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x18, 0x02,
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x74,
@@ -1063,7 +1207,7 @@ var file_v1_train_train_proto_rawDesc = string([]byte{
 	0x45, 0x41, 0x53, 0x59, 0x10, 0x01, 0x12, 0x15, 0x0a, 0x11, 0x44, 0x49, 0x46, 0x46, 0x49, 0x43,
 	0x55, 0x4c, 0x54, 0x59, 0x5f, 0x4d, 0x45, 0x44, 0x49, 0x55, 0x4d, 0x10, 0x02, 0x12, 0x13, 0x0a,
 	0x0f, 0x44, 0x49, 0x46, 0x46, 0x49, 0x43, 0x55, 0x4c, 0x54, 0x59, 0x5f, 0x48, 0x41, 0x52, 0x44,
-	0x10, 0x03, 0x32, 0xe2, 0x03, 0x0a, 0x0c, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x53, 0x65, 0x72, 0x76,
+	0x10, 0x03, 0x32, 0xc0, 0x04, 0x0a, 0x0c, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x53, 0x65, 0x72, 0x76,
 	0x69, 0x63, 0x65, 0x12, 0x4d, 0x0a, 0x0c, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x54, 0x72, 0x61,
 	0x69, 0x6e, 0x73, 0x12, 0x1c, 0x2e, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x76, 0x31, 0x2e, 0x47, 0x65,
 	0x74, 0x41, 0x6c, 0x6c, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
@@ -1093,16 +1237,22 @@ var file_v1_train_train_proto_rawDesc = string([]byte{
 	0x2e, 0x41, 0x64, 0x64, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x49, 0x6d, 0x61, 0x67, 0x65, 0x52, 0x65,
 	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1e, 0x2e, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x76, 0x31, 0x2e,
 	0x41, 0x64, 0x64, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x49, 0x6d, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x8b, 0x01, 0x0a, 0x0b, 0x63, 0x6f, 0x6d, 0x2e,
-	0x74, 0x72, 0x61, 0x69, 0x6e, 0x76, 0x31, 0x42, 0x0a, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x50, 0x72,
-	0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x34, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f,
-	0x6d, 0x2f, 0x46, 0x69, 0x74, 0x6e, 0x6f, 0x77, 0x30, 0x38, 0x2f, 0x66, 0x69, 0x74, 0x6e, 0x6f,
-	0x77, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x70, 0x6b, 0x67, 0x2f, 0x67, 0x65, 0x6e, 0x2f,
-	0x67, 0x6f, 0x2f, 0x76, 0x31, 0x2f, 0x74, 0x72, 0x61, 0x69, 0x6e, 0xa2, 0x02, 0x03, 0x54, 0x58,
-	0x58, 0xaa, 0x02, 0x07, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x76, 0x31, 0xca, 0x02, 0x07, 0x54, 0x72,
-	0x61, 0x69, 0x6e, 0x76, 0x31, 0xe2, 0x02, 0x13, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x76, 0x31, 0x5c,
-	0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x07, 0x54, 0x72,
-	0x61, 0x69, 0x6e, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x5c, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x41, 0x6c,
+	0x6c, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x73, 0x12, 0x22, 0x2e, 0x74,
+	0x72, 0x61, 0x69, 0x6e, 0x76, 0x31, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x41, 0x64, 0x6d,
+	0x69, 0x6e, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x1a, 0x21, 0x2e, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x76, 0x31, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x6c,
+	0x6c, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x73, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x22, 0x00, 0x42, 0x8b, 0x01, 0x0a, 0x0b, 0x63, 0x6f, 0x6d, 0x2e, 0x74, 0x72,
+	0x61, 0x69, 0x6e, 0x76, 0x31, 0x42, 0x0a, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x50, 0x72, 0x6f, 0x74,
+	0x6f, 0x50, 0x01, 0x5a, 0x34, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
+	0x46, 0x69, 0x74, 0x6e, 0x6f, 0x77, 0x30, 0x38, 0x2f, 0x66, 0x69, 0x74, 0x6e, 0x6f, 0x77, 0x2d,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x70, 0x6b, 0x67, 0x2f, 0x67, 0x65, 0x6e, 0x2f, 0x67, 0x6f,
+	0x2f, 0x76, 0x31, 0x2f, 0x74, 0x72, 0x61, 0x69, 0x6e, 0xa2, 0x02, 0x03, 0x54, 0x58, 0x58, 0xaa,
+	0x02, 0x07, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x76, 0x31, 0xca, 0x02, 0x07, 0x54, 0x72, 0x61, 0x69,
+	0x6e, 0x76, 0x31, 0xe2, 0x02, 0x13, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x76, 0x31, 0x5c, 0x47, 0x50,
+	0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x07, 0x54, 0x72, 0x61, 0x69,
+	0x6e, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 })
 
 var (
@@ -1118,52 +1268,57 @@ func file_v1_train_train_proto_rawDescGZIP() []byte {
 }
 
 var file_v1_train_train_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_v1_train_train_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
+var file_v1_train_train_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
 var file_v1_train_train_proto_goTypes = []any{
-	(TrainType)(0),                // 0: trainv1.TrainType
-	(Difficulty)(0),               // 1: trainv1.Difficulty
-	(*AddTrainImageResponse)(nil), // 2: trainv1.AddTrainImageResponse
-	(*AddTrainImageRequest)(nil),  // 3: trainv1.AddTrainImageRequest
-	(*DeleteTrainResponse)(nil),   // 4: trainv1.DeleteTrainResponse
-	(*DeleteTrainRequest)(nil),    // 5: trainv1.DeleteTrainRequest
-	(*UpdateTrainResponse)(nil),   // 6: trainv1.UpdateTrainResponse
-	(*UpdateTrainRequest)(nil),    // 7: trainv1.UpdateTrainRequest
-	(*CreateTrainResponse)(nil),   // 8: trainv1.CreateTrainResponse
-	(*CreateTrainRequest)(nil),    // 9: trainv1.CreateTrainRequest
-	(*GetTrainByIdResponse)(nil),  // 10: trainv1.GetTrainByIdResponse
-	(*GetTrainByIdRequest)(nil),   // 11: trainv1.GetTrainByIdRequest
-	(*GetAllTrainsResponse)(nil),  // 12: trainv1.GetAllTrainsResponse
-	(*GetAllTrainsRequest)(nil),   // 13: trainv1.GetAllTrainsRequest
-	(*Train)(nil),                 // 14: trainv1.Train
-	(*timestamppb.Timestamp)(nil), // 15: google.protobuf.Timestamp
+	(TrainType)(0),                    // 0: trainv1.TrainType
+	(Difficulty)(0),                   // 1: trainv1.Difficulty
+	(*GetAllAdminTrainsResponse)(nil), // 2: trainv1.GetAllAdminTrainsResponse
+	(*GetAllAdminTrainsRequest)(nil),  // 3: trainv1.GetAllAdminTrainsRequest
+	(*AddTrainImageResponse)(nil),     // 4: trainv1.AddTrainImageResponse
+	(*AddTrainImageRequest)(nil),      // 5: trainv1.AddTrainImageRequest
+	(*DeleteTrainResponse)(nil),       // 6: trainv1.DeleteTrainResponse
+	(*DeleteTrainRequest)(nil),        // 7: trainv1.DeleteTrainRequest
+	(*UpdateTrainResponse)(nil),       // 8: trainv1.UpdateTrainResponse
+	(*UpdateTrainRequest)(nil),        // 9: trainv1.UpdateTrainRequest
+	(*CreateTrainResponse)(nil),       // 10: trainv1.CreateTrainResponse
+	(*CreateTrainRequest)(nil),        // 11: trainv1.CreateTrainRequest
+	(*GetTrainByIdResponse)(nil),      // 12: trainv1.GetTrainByIdResponse
+	(*GetTrainByIdRequest)(nil),       // 13: trainv1.GetTrainByIdRequest
+	(*GetAllTrainsRequest)(nil),       // 14: trainv1.GetAllTrainsRequest
+	(*GetAllTrainsResponse)(nil),      // 15: trainv1.GetAllTrainsResponse
+	(*Train)(nil),                     // 16: trainv1.Train
+	(*timestamppb.Timestamp)(nil),     // 17: google.protobuf.Timestamp
 }
 var file_v1_train_train_proto_depIdxs = []int32{
-	0,  // 0: trainv1.UpdateTrainRequest.type:type_name -> trainv1.TrainType
-	1,  // 1: trainv1.UpdateTrainRequest.difficulty:type_name -> trainv1.Difficulty
-	14, // 2: trainv1.CreateTrainResponse.train:type_name -> trainv1.Train
-	0,  // 3: trainv1.CreateTrainRequest.type:type_name -> trainv1.TrainType
-	1,  // 4: trainv1.CreateTrainRequest.difficulty:type_name -> trainv1.Difficulty
-	14, // 5: trainv1.GetTrainByIdResponse.train:type_name -> trainv1.Train
-	14, // 6: trainv1.GetAllTrainsResponse.trains:type_name -> trainv1.Train
-	15, // 7: trainv1.Train.created_at:type_name -> google.protobuf.Timestamp
-	15, // 8: trainv1.Train.updated_at:type_name -> google.protobuf.Timestamp
-	13, // 9: trainv1.TrainService.GetAllTrains:input_type -> trainv1.GetAllTrainsRequest
-	11, // 10: trainv1.TrainService.GetTrainById:input_type -> trainv1.GetTrainByIdRequest
-	9,  // 11: trainv1.TrainService.CreateTrain:input_type -> trainv1.CreateTrainRequest
-	7,  // 12: trainv1.TrainService.UpdateTrain:input_type -> trainv1.UpdateTrainRequest
-	5,  // 13: trainv1.TrainService.DeleteTrain:input_type -> trainv1.DeleteTrainRequest
-	3,  // 14: trainv1.TrainService.AddTrainImage:input_type -> trainv1.AddTrainImageRequest
-	12, // 15: trainv1.TrainService.GetAllTrains:output_type -> trainv1.GetAllTrainsResponse
-	10, // 16: trainv1.TrainService.GetTrainById:output_type -> trainv1.GetTrainByIdResponse
-	8,  // 17: trainv1.TrainService.CreateTrain:output_type -> trainv1.CreateTrainResponse
-	6,  // 18: trainv1.TrainService.UpdateTrain:output_type -> trainv1.UpdateTrainResponse
-	4,  // 19: trainv1.TrainService.DeleteTrain:output_type -> trainv1.DeleteTrainResponse
-	2,  // 20: trainv1.TrainService.AddTrainImage:output_type -> trainv1.AddTrainImageResponse
-	15, // [15:21] is the sub-list for method output_type
-	9,  // [9:15] is the sub-list for method input_type
-	9,  // [9:9] is the sub-list for extension type_name
-	9,  // [9:9] is the sub-list for extension extendee
-	0,  // [0:9] is the sub-list for field type_name
+	16, // 0: trainv1.GetAllAdminTrainsResponse.trains:type_name -> trainv1.Train
+	0,  // 1: trainv1.UpdateTrainRequest.type:type_name -> trainv1.TrainType
+	1,  // 2: trainv1.UpdateTrainRequest.difficulty:type_name -> trainv1.Difficulty
+	16, // 3: trainv1.CreateTrainResponse.train:type_name -> trainv1.Train
+	0,  // 4: trainv1.CreateTrainRequest.type:type_name -> trainv1.TrainType
+	1,  // 5: trainv1.CreateTrainRequest.difficulty:type_name -> trainv1.Difficulty
+	16, // 6: trainv1.GetTrainByIdResponse.train:type_name -> trainv1.Train
+	16, // 7: trainv1.GetAllTrainsResponse.trains:type_name -> trainv1.Train
+	17, // 8: trainv1.Train.created_at:type_name -> google.protobuf.Timestamp
+	17, // 9: trainv1.Train.updated_at:type_name -> google.protobuf.Timestamp
+	14, // 10: trainv1.TrainService.GetAllTrains:input_type -> trainv1.GetAllTrainsRequest
+	13, // 11: trainv1.TrainService.GetTrainById:input_type -> trainv1.GetTrainByIdRequest
+	11, // 12: trainv1.TrainService.CreateTrain:input_type -> trainv1.CreateTrainRequest
+	9,  // 13: trainv1.TrainService.UpdateTrain:input_type -> trainv1.UpdateTrainRequest
+	7,  // 14: trainv1.TrainService.DeleteTrain:input_type -> trainv1.DeleteTrainRequest
+	5,  // 15: trainv1.TrainService.AddTrainImage:input_type -> trainv1.AddTrainImageRequest
+	2,  // 16: trainv1.TrainService.GetAllAdminTrains:input_type -> trainv1.GetAllAdminTrainsResponse
+	15, // 17: trainv1.TrainService.GetAllTrains:output_type -> trainv1.GetAllTrainsResponse
+	12, // 18: trainv1.TrainService.GetTrainById:output_type -> trainv1.GetTrainByIdResponse
+	10, // 19: trainv1.TrainService.CreateTrain:output_type -> trainv1.CreateTrainResponse
+	8,  // 20: trainv1.TrainService.UpdateTrain:output_type -> trainv1.UpdateTrainResponse
+	6,  // 21: trainv1.TrainService.DeleteTrain:output_type -> trainv1.DeleteTrainResponse
+	4,  // 22: trainv1.TrainService.AddTrainImage:output_type -> trainv1.AddTrainImageResponse
+	3,  // 23: trainv1.TrainService.GetAllAdminTrains:output_type -> trainv1.GetAllAdminTrainsRequest
+	17, // [17:24] is the sub-list for method output_type
+	10, // [10:17] is the sub-list for method input_type
+	10, // [10:10] is the sub-list for extension type_name
+	10, // [10:10] is the sub-list for extension extendee
+	0,  // [0:10] is the sub-list for field type_name
 }
 
 func init() { file_v1_train_train_proto_init() }
@@ -1171,14 +1326,14 @@ func file_v1_train_train_proto_init() {
 	if File_v1_train_train_proto != nil {
 		return
 	}
-	file_v1_train_train_proto_msgTypes[5].OneofWrappers = []any{}
+	file_v1_train_train_proto_msgTypes[7].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_v1_train_train_proto_rawDesc), len(file_v1_train_train_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   13,
+			NumMessages:   15,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

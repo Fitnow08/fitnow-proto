@@ -19,12 +19,13 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	TrainService_GetAllTrains_FullMethodName  = "/trainv1.TrainService/GetAllTrains"
-	TrainService_GetTrainById_FullMethodName  = "/trainv1.TrainService/GetTrainById"
-	TrainService_CreateTrain_FullMethodName   = "/trainv1.TrainService/CreateTrain"
-	TrainService_UpdateTrain_FullMethodName   = "/trainv1.TrainService/UpdateTrain"
-	TrainService_DeleteTrain_FullMethodName   = "/trainv1.TrainService/DeleteTrain"
-	TrainService_AddTrainImage_FullMethodName = "/trainv1.TrainService/AddTrainImage"
+	TrainService_GetAllTrains_FullMethodName      = "/trainv1.TrainService/GetAllTrains"
+	TrainService_GetTrainById_FullMethodName      = "/trainv1.TrainService/GetTrainById"
+	TrainService_CreateTrain_FullMethodName       = "/trainv1.TrainService/CreateTrain"
+	TrainService_UpdateTrain_FullMethodName       = "/trainv1.TrainService/UpdateTrain"
+	TrainService_DeleteTrain_FullMethodName       = "/trainv1.TrainService/DeleteTrain"
+	TrainService_AddTrainImage_FullMethodName     = "/trainv1.TrainService/AddTrainImage"
+	TrainService_GetAllAdminTrains_FullMethodName = "/trainv1.TrainService/GetAllAdminTrains"
 )
 
 // TrainServiceClient is the client API for TrainService service.
@@ -37,6 +38,7 @@ type TrainServiceClient interface {
 	UpdateTrain(ctx context.Context, in *UpdateTrainRequest, opts ...grpc.CallOption) (*UpdateTrainResponse, error)
 	DeleteTrain(ctx context.Context, in *DeleteTrainRequest, opts ...grpc.CallOption) (*DeleteTrainResponse, error)
 	AddTrainImage(ctx context.Context, in *AddTrainImageRequest, opts ...grpc.CallOption) (*AddTrainImageResponse, error)
+	GetAllAdminTrains(ctx context.Context, in *GetAllAdminTrainsResponse, opts ...grpc.CallOption) (*GetAllAdminTrainsRequest, error)
 }
 
 type trainServiceClient struct {
@@ -107,6 +109,16 @@ func (c *trainServiceClient) AddTrainImage(ctx context.Context, in *AddTrainImag
 	return out, nil
 }
 
+func (c *trainServiceClient) GetAllAdminTrains(ctx context.Context, in *GetAllAdminTrainsResponse, opts ...grpc.CallOption) (*GetAllAdminTrainsRequest, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAllAdminTrainsRequest)
+	err := c.cc.Invoke(ctx, TrainService_GetAllAdminTrains_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TrainServiceServer is the server API for TrainService service.
 // All implementations must embed UnimplementedTrainServiceServer
 // for forward compatibility.
@@ -117,6 +129,7 @@ type TrainServiceServer interface {
 	UpdateTrain(context.Context, *UpdateTrainRequest) (*UpdateTrainResponse, error)
 	DeleteTrain(context.Context, *DeleteTrainRequest) (*DeleteTrainResponse, error)
 	AddTrainImage(context.Context, *AddTrainImageRequest) (*AddTrainImageResponse, error)
+	GetAllAdminTrains(context.Context, *GetAllAdminTrainsResponse) (*GetAllAdminTrainsRequest, error)
 	mustEmbedUnimplementedTrainServiceServer()
 }
 
@@ -144,6 +157,9 @@ func (UnimplementedTrainServiceServer) DeleteTrain(context.Context, *DeleteTrain
 }
 func (UnimplementedTrainServiceServer) AddTrainImage(context.Context, *AddTrainImageRequest) (*AddTrainImageResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddTrainImage not implemented")
+}
+func (UnimplementedTrainServiceServer) GetAllAdminTrains(context.Context, *GetAllAdminTrainsResponse) (*GetAllAdminTrainsRequest, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllAdminTrains not implemented")
 }
 func (UnimplementedTrainServiceServer) mustEmbedUnimplementedTrainServiceServer() {}
 func (UnimplementedTrainServiceServer) testEmbeddedByValue()                      {}
@@ -274,6 +290,24 @@ func _TrainService_AddTrainImage_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TrainService_GetAllAdminTrains_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllAdminTrainsResponse)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrainServiceServer).GetAllAdminTrains(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrainService_GetAllAdminTrains_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrainServiceServer).GetAllAdminTrains(ctx, req.(*GetAllAdminTrainsResponse))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TrainService_ServiceDesc is the grpc.ServiceDesc for TrainService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -304,6 +338,10 @@ var TrainService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AddTrainImage",
 			Handler:    _TrainService_AddTrainImage_Handler,
+		},
+		{
+			MethodName: "GetAllAdminTrains",
+			Handler:    _TrainService_GetAllAdminTrains_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
