@@ -20,7 +20,6 @@ const _ = grpc.SupportPackageIsVersion9
 
 const (
 	TrainService_GetAllTrains_FullMethodName         = "/trainv1.TrainService/GetAllTrains"
-	TrainService_GetTrainById_FullMethodName         = "/trainv1.TrainService/GetTrainById"
 	TrainService_CreateTrain_FullMethodName          = "/trainv1.TrainService/CreateTrain"
 	TrainService_UpdateTrain_FullMethodName          = "/trainv1.TrainService/UpdateTrain"
 	TrainService_DeleteTrain_FullMethodName          = "/trainv1.TrainService/DeleteTrain"
@@ -35,7 +34,6 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TrainServiceClient interface {
 	GetAllTrains(ctx context.Context, in *GetAllTrainsRequest, opts ...grpc.CallOption) (*GetAllTrainsResponse, error)
-	GetTrainById(ctx context.Context, in *GetTrainByIdRequest, opts ...grpc.CallOption) (*GetTrainByIdResponse, error)
 	CreateTrain(ctx context.Context, in *CreateTrainRequest, opts ...grpc.CallOption) (*CreateTrainResponse, error)
 	UpdateTrain(ctx context.Context, in *UpdateTrainRequest, opts ...grpc.CallOption) (*UpdateTrainResponse, error)
 	DeleteTrain(ctx context.Context, in *DeleteTrainRequest, opts ...grpc.CallOption) (*DeleteTrainResponse, error)
@@ -57,16 +55,6 @@ func (c *trainServiceClient) GetAllTrains(ctx context.Context, in *GetAllTrainsR
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAllTrainsResponse)
 	err := c.cc.Invoke(ctx, TrainService_GetAllTrains_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *trainServiceClient) GetTrainById(ctx context.Context, in *GetTrainByIdRequest, opts ...grpc.CallOption) (*GetTrainByIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTrainByIdResponse)
-	err := c.cc.Invoke(ctx, TrainService_GetTrainById_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -148,7 +136,6 @@ func (c *trainServiceClient) GetAllAdminTrains(ctx context.Context, in *GetAllAd
 // for forward compatibility.
 type TrainServiceServer interface {
 	GetAllTrains(context.Context, *GetAllTrainsRequest) (*GetAllTrainsResponse, error)
-	GetTrainById(context.Context, *GetTrainByIdRequest) (*GetTrainByIdResponse, error)
 	CreateTrain(context.Context, *CreateTrainRequest) (*CreateTrainResponse, error)
 	UpdateTrain(context.Context, *UpdateTrainRequest) (*UpdateTrainResponse, error)
 	DeleteTrain(context.Context, *DeleteTrainRequest) (*DeleteTrainResponse, error)
@@ -168,9 +155,6 @@ type UnimplementedTrainServiceServer struct{}
 
 func (UnimplementedTrainServiceServer) GetAllTrains(context.Context, *GetAllTrainsRequest) (*GetAllTrainsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllTrains not implemented")
-}
-func (UnimplementedTrainServiceServer) GetTrainById(context.Context, *GetTrainByIdRequest) (*GetTrainByIdResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetTrainById not implemented")
 }
 func (UnimplementedTrainServiceServer) CreateTrain(context.Context, *CreateTrainRequest) (*CreateTrainResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTrain not implemented")
@@ -228,24 +212,6 @@ func _TrainService_GetAllTrains_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TrainServiceServer).GetAllTrains(ctx, req.(*GetAllTrainsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TrainService_GetTrainById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTrainByIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrainServiceServer).GetTrainById(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrainService_GetTrainById_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrainServiceServer).GetTrainById(ctx, req.(*GetTrainByIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -386,10 +352,6 @@ var TrainService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAllTrains",
 			Handler:    _TrainService_GetAllTrains_Handler,
-		},
-		{
-			MethodName: "GetTrainById",
-			Handler:    _TrainService_GetTrainById_Handler,
 		},
 		{
 			MethodName: "CreateTrain",

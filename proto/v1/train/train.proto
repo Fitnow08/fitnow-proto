@@ -6,7 +6,6 @@ import "google/protobuf/timestamp.proto";
 
 service TrainService {
   rpc GetAllTrains(GetAllTrainsRequest) returns (GetAllTrainsResponse) {}
-  rpc GetTrainById(GetTrainByIdRequest) returns (GetTrainByIdResponse){}
   rpc CreateTrain(CreateTrainRequest) returns(CreateTrainResponse) {}
   rpc UpdateTrain(UpdateTrainRequest) returns(UpdateTrainResponse) {}
   rpc DeleteTrain(DeleteTrainRequest) returns(DeleteTrainResponse) {}
@@ -55,7 +54,6 @@ message UpdateTrainResponse{}
 
 message UpdateTrainRequest {
   string train_id = 1;
-
   string title = 2;
   optional TrainType type = 3;
   optional int64 duration = 4;
@@ -78,13 +76,6 @@ message CreateTrainRequest {
   string category_id = 7;
   string user_id = 8;
 }
-message GetTrainByIdResponse{
-  Train train = 1;
-}
-message GetTrainByIdRequest{
-  string id = 1;
-}
-
 
 message GetAllTrainsRequest {
   int32  limit       = 1;
@@ -118,6 +109,7 @@ message TrainExerciseInput {
   int32 steps = 2;
   int32 sets = 3;
   int32 position = 4;
+  double weight = 5;
 }
 message TrainExercise {
   string id = 1;
@@ -128,6 +120,7 @@ message TrainExercise {
   int32 steps = 6;
   int32 sets = 7;
   int32 position = 8;
+  double weight = 9;
 }
 enum TrainType {
   TRAIN_TYPE_UNSPECIFIED = 0;

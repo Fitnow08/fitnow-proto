@@ -1,0 +1,123 @@
+syntax = "proto3";
+
+package sessionv1;
+
+import "google/protobuf/timestamp.proto";
+
+service SessionService {
+  // workout sessions
+  rpc CreateWorkoutSession(CreateWorkoutSessionRequest) returns (CreateWorkoutSessionResponse) {}
+  rpc GetWorkoutSessions(GetWorkoutSessionsRequest) returns (GetWorkoutSessionsResponse) {}
+
+  // заметки к занятию
+  rpc UpsertSessionNote(UpsertSessionNoteRequest) returns (UpsertSessionNoteResponse) {}
+  rpc GetSessionNotes(GetSessionNotesRequest) returns (GetSessionNotesResponse) {}
+  rpc DeleteSessionNote(DeleteSessionNoteRequest) returns (DeleteSessionNoteResponse) {}
+
+  // заметки к упражнению в занятии
+  rpc UpsertSessionExerciseNote(UpsertSessionExerciseNoteRequest) returns (UpsertSessionExerciseNoteResponse) {}
+  rpc GetSessionExerciseNotes(GetSessionExerciseNotesRequest) returns (GetSessionExerciseNotesResponse) {}
+  rpc DeleteSessionExerciseNote(DeleteSessionExerciseNoteRequest) returns (DeleteSessionExerciseNoteResponse) {}
+}
+
+message WorkoutSession {
+  string id = 1;
+  string user_id = 2;
+  string train_id = 3;
+  optional string program_train_id = 4; // NULL = разовая тренировка
+  int64 duration = 5;
+  int64 calories = 6;
+  google.protobuf.Timestamp completed_at = 7;
+}
+
+message CreateWorkoutSessionRequest {
+  string user_id = 1;
+  string train_id = 2;
+  optional string program_train_id = 3;
+  int64 duration = 4;
+  int64 calories = 5;
+}
+message CreateWorkoutSessionResponse {
+  WorkoutSession session = 1;
+}
+
+// прогресс пользователя за период (индекс user_id, completed_at)
+message GetWorkoutSessionsRequest {
+  string user_id = 1;
+  optional google.protobuf.Timestamp from = 2;
+  optional google.protobuf.Timestamp to = 3;
+  int32 limit = 4;
+  string cursor = 5;
+}
+message GetWorkoutSessionsResponse {
+  repeated WorkoutSession sessions = 1;
+  string next_cursor = 2;
+  bool has_more = 3;
+}
+
+message SessionNote {
+  string id = 1;
+  string user_id = 2;
+  string session_id = 3;
+  string note = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+}
+
+message UpsertSessionNoteRequest {
+  string user_id = 1;
+  string session_id = 2;
+  string note = 3;
+}
+message UpsertSessionNoteResponse {
+  SessionNote note = 1;
+}
+
+message GetSessionNotesRequest {
+  string session_id = 1;
+  string user_id = 2;
+}
+message GetSessionNotesResponse {
+  repeated SessionNote notes = 1;
+}
+
+message DeleteSessionNoteRequest {
+  string id = 1;
+  string user_id = 2;
+}
+message DeleteSessionNoteResponse {}
+
+message SessionExerciseNote {
+  string id = 1;
+  string user_id = 2;
+  string session_id = 3;
+  string exercise_id = 4;
+  string note = 5;
+  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp updated_at = 7;
+}
+
+// upsert: одна заметка на (session_id, exercise_id), повторный вызов обновляет note
+message UpsertSessionExerciseNoteRequest {
+  string user_id = 1;
+  string session_id = 2;
+  string exercise_id = 3;
+  string note = 4;
+}
+message UpsertSessionExerciseNoteResponse {
+  SessionExerciseNote note = 1;
+}
+
+message GetSessionExerciseNotesRequest {
+  string session_id = 1; // все заметки по упражнениям этого занятия
+  string user_id = 2;
+}
+message GetSessionExerciseNotesResponse {
+  repeated SessionExerciseNote notes = 1;
+}
+
+message DeleteSessionExerciseNoteRequest {
+  string id = 1;
+  string user_id = 2;
+}
+message DeleteSessionExerciseNoteResponse {}

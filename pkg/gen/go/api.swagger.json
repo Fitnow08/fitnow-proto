@@ -12,6 +12,9 @@
       "name": "ProgramService"
     },
     {
+      "name": "SessionService"
+    },
+    {
       "name": "TrainService"
     }
   ],
@@ -450,6 +453,161 @@
         }
       }
     },
+    "sessionv1CreateWorkoutSessionResponse": {
+      "type": "object",
+      "properties": {
+        "session": {
+          "$ref": "#/definitions/sessionv1WorkoutSession"
+        }
+      }
+    },
+    "sessionv1DeleteSessionExerciseNoteResponse": {
+      "type": "object"
+    },
+    "sessionv1DeleteSessionNoteResponse": {
+      "type": "object"
+    },
+    "sessionv1GetSessionExerciseNotesResponse": {
+      "type": "object",
+      "properties": {
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sessionv1SessionExerciseNote"
+          }
+        }
+      }
+    },
+    "sessionv1GetSessionNotesResponse": {
+      "type": "object",
+      "properties": {
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sessionv1SessionNote"
+          }
+        }
+      }
+    },
+    "sessionv1GetWorkoutSessionsResponse": {
+      "type": "object",
+      "properties": {
+        "sessions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sessionv1WorkoutSession"
+          }
+        },
+        "nextCursor": {
+          "type": "string"
+        },
+        "hasMore": {
+          "type": "boolean"
+        }
+      }
+    },
+    "sessionv1SessionExerciseNote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string"
+        },
+        "exerciseId": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "sessionv1SessionNote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "sessionv1UpsertSessionExerciseNoteResponse": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "$ref": "#/definitions/sessionv1SessionExerciseNote"
+        }
+      }
+    },
+    "sessionv1UpsertSessionNoteResponse": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "$ref": "#/definitions/sessionv1SessionNote"
+        }
+      }
+    },
+    "sessionv1WorkoutSession": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "trainId": {
+          "type": "string"
+        },
+        "programTrainId": {
+          "type": "string",
+          "title": "NULL = разовая тренировка"
+        },
+        "duration": {
+          "type": "string",
+          "format": "int64"
+        },
+        "calories": {
+          "type": "string",
+          "format": "int64"
+        },
+        "completedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
     "trainv1AddTrainExercisesResponse": {
       "type": "object"
     },
@@ -523,14 +681,6 @@
             "type": "object",
             "$ref": "#/definitions/trainv1TrainExercise"
           }
-        }
-      }
-    },
-    "trainv1GetTrainByIdResponse": {
-      "type": "object",
-      "properties": {
-        "train": {
-          "$ref": "#/definitions/trainv1Train"
         }
       }
     },
@@ -612,6 +762,10 @@
         "position": {
           "type": "integer",
           "format": "int32"
+        },
+        "weight": {
+          "type": "number",
+          "format": "double"
         }
       }
     },
@@ -632,6 +786,10 @@
         "position": {
           "type": "integer",
           "format": "int32"
+        },
+        "weight": {
+          "type": "number",
+          "format": "double"
         }
       }
     },

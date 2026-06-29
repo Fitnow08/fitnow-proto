@@ -19,11 +19,6 @@ class TrainServiceStub(object):
                 request_serializer=v1_dot_train_dot_train__pb2.GetAllTrainsRequest.SerializeToString,
                 response_deserializer=v1_dot_train_dot_train__pb2.GetAllTrainsResponse.FromString,
                 _registered_method=True)
-        self.GetTrainById = channel.unary_unary(
-                '/trainv1.TrainService/GetTrainById',
-                request_serializer=v1_dot_train_dot_train__pb2.GetTrainByIdRequest.SerializeToString,
-                response_deserializer=v1_dot_train_dot_train__pb2.GetTrainByIdResponse.FromString,
-                _registered_method=True)
         self.CreateTrain = channel.unary_unary(
                 '/trainv1.TrainService/CreateTrain',
                 request_serializer=v1_dot_train_dot_train__pb2.CreateTrainRequest.SerializeToString,
@@ -65,12 +60,6 @@ class TrainServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetAllTrains(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetTrainById(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -125,11 +114,6 @@ def add_TrainServiceServicer_to_server(servicer, server):
                     servicer.GetAllTrains,
                     request_deserializer=v1_dot_train_dot_train__pb2.GetAllTrainsRequest.FromString,
                     response_serializer=v1_dot_train_dot_train__pb2.GetAllTrainsResponse.SerializeToString,
-            ),
-            'GetTrainById': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetTrainById,
-                    request_deserializer=v1_dot_train_dot_train__pb2.GetTrainByIdRequest.FromString,
-                    response_serializer=v1_dot_train_dot_train__pb2.GetTrainByIdResponse.SerializeToString,
             ),
             'CreateTrain': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateTrain,
@@ -194,33 +178,6 @@ class TrainService(object):
             '/trainv1.TrainService/GetAllTrains',
             v1_dot_train_dot_train__pb2.GetAllTrainsRequest.SerializeToString,
             v1_dot_train_dot_train__pb2.GetAllTrainsResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def GetTrainById(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/trainv1.TrainService/GetTrainById',
-            v1_dot_train_dot_train__pb2.GetTrainByIdRequest.SerializeToString,
-            v1_dot_train_dot_train__pb2.GetTrainByIdResponse.FromString,
             options,
             channel_credentials,
             insecure,
